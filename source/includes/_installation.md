@@ -64,7 +64,7 @@ Xennio.configure(this, "XENN_SDK_KEY");
 
 ```javascript
 <script type="application/javascript">
-        var xpPageLayer = {}; 
+        var xpPageLayer = xpPageLayer || {}; 
         var __xennioSdkKey = 'YOUR_SDK_KEY'; 
         var s = document.createElement('script');
         s.setAttribute('src', 'https://s.xenn.io/xenn.io.min.js'); 
