@@ -1,0 +1,62 @@
+# Applications
+
+Xenn.io provides IOS, Android and JavaScript SDK's for collecting application event data.
+The following guide will describe you how to integrate your application using related SDK.
+
+## Creating Application
+
+For resolving SDK code blocks, from <a href='https://console.xenn.io' target='_blank'>xenn.io management console</a>, you need to complete application setup from applications.
+<br>
+<br>
+For creating application navigate from menu Setup -> Application or
+click <a href='https://console.xenn.io/applications' target='_blank'>here</a>
+<br>
+<br>
+<%= image_tag "images/assets/applicationsmenu.jpg" %>
+<br>
+<br>
+Click Create New Application button or click <a href='https://console.xenn.io/applications/create' target='_blank'>here</a>
+<br>
+<br>
+<%= image_tag "images/assets/createapplication.jpg" %>
+<br>
+<br>
+Application setup page will appear. Select your application type, fill form and click save to create your application.
+### JavaScript Client
+
+<%= image_tag "images/assets/applicationscreate.jpg" %>
+
+Parameter           | Optional | Description
+---------           | -------- | -----------
+Application Name    | false    | Friendly name of your application (Customer Web Site)
+Host To Track       | false    | JavaScript client makes OPTION type request for handling events. Host should be present without HTTP/HTTPS
+Environment         | false    | Identifies your application running environment
+
+### IOS Client
+
+<%= image_tag "images/assets/createapplicationios.jpg" %>
+
+Parameter           | Optional | Description
+---------           | -------- | -----------
+Application Name    | false    | Friendly name of your application (IOS Aplication)
+Environment         | false    | Identifies your application running environment
+
+### Android FCM Client
+
+<%= image_tag "images/assets/createapplicationfcm.jpg" %>
+
+Parameter           | Optional | Description
+---------           | -------- | -----------
+Application Name    | false    | Friendly name of your application (Google Store Android Application)
+Environment         | false    | Identifies your application running environment
+
+
+
+### Android Huawei Client
+
+<%= image_tag "images/assets/createapplicationhuawei.jpg" %>
+
+Parameter           | Optional | Description
+---------           | -------- | -----------
+Application Name    | false    | Friendly name of your application (Huawei Store Android Application)
+Environment         | false    | Identifies your application running environment
