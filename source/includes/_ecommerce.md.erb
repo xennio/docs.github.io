@@ -1,0 +1,157 @@
+# E-commerce Events
+
+Xenn.io SDK provides structured e-commerce events for easy tracking without missing data. This method set will same api
+with predefined method and properties.
+
+## Product Views
+Method should be called whenever customer opens a product detail page. Check the data structure for feeding relevant
+fields and data.
+
+Parameter           | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+productId           | String | false     | Identifier of product
+variant             | String | true      | Identifier of a variant if selected or present
+price               | Double | false     | Full price of product
+discountedPrice     | Double | true      | Discounted price of product
+currency            | String | false     | ISO currency code of product
+supplierId          | String | true      | If product supplied by multiple vendor add supplier id
+path                | String | true      | Url path of product detail page
+
+
+```swift
+Xennio.ecommerce().productView(productId: "1231",
+variantId: nil, price: 28.2, discountedPrice: nil,
+currency: "USD", supplierId: nil,
+path: "http://xenn.io/productpath")
+```
+
+```java
+Xennio.ecommerce().productView("1003",
+"small", 200d, 180d, "USD", null,
+"https://commercedemo.xenn.io/proteus-fitness-jackshirt.html");
+```
+
+## Category Views
+Method should be called whenever customer opens a category page. Check the data structure for feeding relevant
+fields and data.
+
+Parameter           | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+categoryId          | String | false     | Identifier of category
+path                | String | true      | Url path of category detail page
+
+
+```swift
+Xennio.ecommerce().categoryView(categoryId: "123123",
+path: nil)
+```
+
+```java
+Xennio.ecommerce().categoryView("123123",
+"http://path");
+```
+
+## Search Result
+Method should be called whenever customer makes free text search. Check the data structure for feeding relevant
+fields and data.
+
+Parameter           | Type    | Optional   | Description
+---------           | -----   | ---------  | -----------
+keyword             | String  | false      | Search keyword
+resultCount         | Integer | false      | Items count of search result
+path                | String | true        | Url path of search page
+
+```swift
+Xennio.ecommerce().searchResult(keyword: "green shirt",
+ resultCount: 254)
+```
+
+```java
+Xennio.ecommerce().searchResult("green shirt",
+129, null);
+
+```
+## Add To Cart
+Method should be called whenever customer adds item to basket. Check the data structure for feeding relevant
+fields and data.
+
+Parameter           | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+productId           | String | false     | Identifier of product
+variant             | String | true      | Identifier of a variant if selected or present
+quantity            | Integer| false     | Quantity added to basket
+price               | Double | false     | Full price of product
+discountedPrice     | Double | true      | Discounted price of product
+currency            | String | false     | ISO currency code of product
+origin              | String | true      | Location of add to basket button. Eg: ProductDetail, CategoryDetail
+basketId            | String | true      | Unique identifier of basketId
+supplierId          | String | true      | If product supplied by multiple vendor add supplier id
+
+
+```swift
+Xennio.ecommerce().addToCart(productId: "product1",
+variant: nil, quantity: 27, price: 28.9,
+discountedPrice: nil,
+currency: "USD", origin: "ProductDetailPage",
+basketId: "basket232", supplierId: nil)
+```
+
+```java
+Xennio.ecommerce().addToCart("productId",
+null, 27, 29.8, null,"USD",
+"ProductDetailPage", "basket1231", null);
+```
+## Remove From Cart
+Method should be called whenever customer removes item from basket. Check the data structure for feeding relevant
+fields and data.
+
+Parameter           | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+productId           | String | false     | Identifier of product
+variant             | String | true      | Identifier of a variant if selected or present
+quantity            | Integer| false     | Quantity added to basket
+basketId            | String | true      | Unique identifier of basketId
+
+```swift
+Xennio.ecommerce().removeFromCart(
+productId: "productId", variantId: nil,
+quantity: 1, basketId: "basketId")
+```
+
+```java
+Xennio.ecommerce().removeFromCart("productId",
+null, 10, "basketId");
+```
+
+## Cart View
+Method should be called whenever customer opens cart page. Check the data structure for feeding relevant
+fields and data.
+
+Parameter           | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+basketId            | String | false      | Unique identifier of basketId
+
+```swift
+Xennio.ecommerce().cartView(basketId: "basketId")
+```
+
+```java
+Xennio.ecommerce().cartView("basketId");
+```
+
+## Order Funnel
+Method should be called if you have multiple steps before completing and Order like address input, payment information pages. Check the data structure for feeding relevant
+fields and data.
+
+Parameter           | Type   | Optional   | Description
+---------           | -----  | ---------  | -----------
+basketId            | String | false      | Unique identifier of basketId
+step                | String | false      | Name of step. Eg: AddressInfoPage, CreditCardPage
+
+```swift
+Xennio.ecommerce().orderFunnel(basketId: "basketId", step: "AddressInfoPage")
+```
+
+```java
+Xennio.ecommerce().cartView("basketId", "CreditCardPage");
+```

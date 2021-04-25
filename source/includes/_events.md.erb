@@ -1,0 +1,60 @@
+# Events
+
+Xenn.io SDK provides both structured event collection and custom event collection methods
+The following guide will describe you how to create event with SDK.
+
+## Identifying your members
+
+You can correlate your members activities with using SDK login method. You should call this method after login or after
+Xennio instance created while loading application. Logout method also provided for removing correlation for events
+which will make in same session.
+
+```swift
+Xennio.login(memberId: "YOUR_MEMBER_ID")
+
+Xennio.logout()
+```
+
+```java
+Xennio.login("YOUR_MEMBER_ID");
+
+Xennio.logout();
+```
+
+```javascript
+xennio.login("YOUR_MEMBER_ID");
+
+xennio.logout();
+```
+## Page Views
+
+Page view events should be fired whenever a page rendered. You should set pageType in method parameters.
+You can add extra parameters to your page view events.
+
+```swift
+Xennio.eventing().pageView(pageType: "homePage")
+// Page view events with extra parameters
+Xennio.eventing().pageView(pageType: "homePage",
+params: ["url": "https://xenn.io/detail",
+"id": "12312", "hasAccess": false])
+```
+
+```java
+Xennio.eventing().pageView("homePage");
+// Page view events with extra parameters
+Map<String, Object> params = new HashMap<>();
+params.put("url", "https://xenn.io/detail");
+params.put("id", "12312");
+params.put("hasAccess", true);
+Xennio.eventing().pageView("homePage", params);
+```
+
+```javascript
+xpPageLayer["pageType"] = "homePage";
+xennio.pv();
+//Page view with extra parameters
+xpPageLayer["pageType"] = "homePage";
+xpPageLayer["id"] = "12312";
+xpPageLayer["hasAccess"] = false;
+xennio.pv();
+```

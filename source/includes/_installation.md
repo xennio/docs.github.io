@@ -58,17 +58,3 @@ After resolving dependencies configure your application with your provided Xenn.
 ```java
 Xennio.configure(this, "XENN_SDK_KEY");
 ```
-
-
-## Javascript
-
-```javascript
-<script type="application/javascript">
-        var xpPageLayer = xpPageLayer || {}; 
-        var __xennioSdkKey = 'YOUR_SDK_KEY'; 
-        var s = document.createElement('script');
-        s.setAttribute('src', 'https://s.xenn.io/xenn.io.min.js'); 
-        s.async = true;
-        document.getElementsByTagName('script')[0].appendChild(s);
-</script>
-```
