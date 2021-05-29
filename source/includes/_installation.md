@@ -13,14 +13,24 @@ Be sure that you added dependency to your `Podfile` file
 
 ```swift
 target 'your-ios-application' do
- pod 'Xennio', '~> 2.3.2'
+ pod 'Xennio', '~> 2.5.6'
 end
 ```
 
 After resolving dependencies configure your application with your provided Xenn.io key.
 
 ```swift
- Xennio.configure(sdkKey: "YOUR_SDK_KEY")
+   let xennConfig = XennConfig.create(sdkKey: "YOUR-SDK-KEY")
+   Xennio.configure(xennConfig: xennConfig)
+```
+
+You can also collect your events to specific hosts. You have to provide a domain and contact with
+Xenn.io team for pointing requests to our servers.
+
+```swift
+   let xennConfig = XennConfig.create(sdkKey: "YOUR-SDK-KEY")
+   xennConfig.collectorUrl(url: "https://your domain")
+   Xennio.configure(xennConfig: xennConfig)
 ```
 
 ## Android
@@ -56,5 +66,8 @@ Check latest version of SDK from [here](https://mvnrepository.com/artifact/io.xe
 After resolving dependencies configure your application with your provided Xenn.io key.
 
 ```java
-Xennio.configure(this, "XENN_SDK_KEY");
+    XennConfig xennConfig =
+    XennConfig.init("YOUR-SDK-KEY")
+              .useXennPlugin(FcmKitPlugin.class);
+    Xennio.configure(this, xennConfig);
 ```
