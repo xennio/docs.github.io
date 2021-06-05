@@ -16,7 +16,7 @@ Xennio.login(memberId: "YOUR_MEMBER_ID")
 
 ### Android SDK
 
-```swift
+```java
 Xennio.login("YOUR_MEMBER_ID");
 ```
 
@@ -33,7 +33,7 @@ Xennio.logout()
 
 ### Android SDK
 
-```swift
+```java
 Xennio.logout();
 ```
 
@@ -62,7 +62,7 @@ func application(_ application: UIApplication, open url: URL,
 
 In MainActivity add lines to onNewIntent method
 
-```swift
+```java
 @Override
 protected void onNewIntent(Intent intent) {
   super.onNewIntent(intent);
