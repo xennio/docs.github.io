@@ -366,7 +366,7 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 19px;
-    margin-top: 4em;
+    margin-top: 2em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
@@ -515,6 +515,8 @@ html, body {
 .content {
   &>div.highlight {
     clear:none;
+    padding: 5px;
+    margin: 15px;
   }
 
   pre, blockquote {
@@ -522,10 +524,7 @@ html, body {
     color: #fff;
 
     margin: 0;
-    width: $examples-width;
-
-    float:right;
-    clear:right;
+    width: $code-samples-width;
 
     box-sizing: border-box;
 
@@ -617,7 +616,7 @@ html, body {
 }
 
 .highlight, .highlight .w {
-  background-color: $code-bg;
+
 }
 
 .copy-clipboard {

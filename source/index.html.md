@@ -2,9 +2,6 @@
 title: Xennio API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - javascript
-  - kotlin
-  - swift
 
 toc_footers:
   - <a href='http://console.xenn.io' target='_blank'>Xenn.io Console Access</a>
@@ -13,8 +10,10 @@ toc_footers:
 includes:
   - intro
   - application.md.erb
-  - installation
-  - events.md.erb
+  - ios
+  - android
+  - session_events
+  - events
   - ecommerce.md.erb
 
 search: false
