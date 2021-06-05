@@ -19,7 +19,7 @@ Xennio.eventing().pageView(pageType: "homePage", params: ["url": "https://xenn.i
 
 ### Android SDK
 
-```swift
+```java
 Xennio.eventing().pageView("homePage");
 // Page view events with extra parameters
 Map<String, Object> params = new HashMap<>();
@@ -45,7 +45,7 @@ Xennio.eventing().actionResult(type: "homePage", params: ["url": "https://xenn.i
 
 ### Android SDK
 
-```swift
+```java
 Xennio.eventing().actionResult("testAction");
 // Page view events with extra parameters
 Map<String, Object> params = new HashMap<>();
@@ -71,7 +71,7 @@ Xennio.eventing().impression(type: "bannerView", params: ["entity": "banners",
 
 ### Android SDK
 
-```swift
+```java
 Xennio.eventing().impression("bannerView");
 // Page view events with extra parameters
 Map<String, Object> params = new HashMap<>();
@@ -96,7 +96,7 @@ Xennio.eventing().custom(eventName: "Click", params: ["buttonName": "Add To Cart
 
 ### Android SDK
 
-```swift
+```java
 Xennio.eventing().custom("Click");
 // Page view events with extra parameters
 Map<String, Object> params = new HashMap<>();
