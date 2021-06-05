@@ -13,7 +13,7 @@
 
 - In app module's build.gradle file, add dependency statement inside of dependencies block
 
-```swift
+```java
 dependencies {
 implementation group: 'io.xenn', 
   name: 'android-sdk', version: '3.1.1'
@@ -26,7 +26,7 @@ Check latest version of SDK from [here](https://mvnrepository.com/artifact/io.xe
 ## Step 3 - Configuring of Android SDK
 Open your project's Application file and add the Xenn.io configuration codes with your credentials to onCreate method.
 
-```swift
+```java
 @Override
 public void onCreate() {
   super.onCreate();
