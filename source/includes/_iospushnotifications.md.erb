@@ -1,6 +1,6 @@
 # iOS Push Notifications
 
-## Step 1 - Requirements
+## Step 1 - Apple Requirements
 
 - Because of Xcode simulator doesn't have push notification support for testing purposes, you need an real iOS test device.
 - Apple Push Notification service SSL certificate.
@@ -57,14 +57,14 @@ class NotificationService: UNNotificationServiceExtension {
 }
 ```
 
-## Step 3 - Application setup
+## Step 3 - iOS Application setup
 
 - Open project navigator again and click your application in targets. Click +Capability button and search for Push Notifications and
 double click Push Notifications.
 
 <%= image_tag "images/assets/iospushnotificationextensionpushsettings.jpg" %>
 
-- Open Appdelegate file and add codes below to didRegisterForRemoteNotificationsWithDeviceToken method.
+- To store your users push notification tokens. Open Appdelegate file and add codes below to didRegisterForRemoteNotificationsWithDeviceToken method.
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -84,3 +84,4 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
  Xennio.notifications().handlePushNotification(userInfo: userInfo)
 }
 ```
+- Now iOS push notification setup completed in your app. You have to create distribution for testing end to end integration.

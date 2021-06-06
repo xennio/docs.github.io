@@ -1,3 +1,51 @@
-# Android Push Notifications
+# Google Android Push Notifications
 
-## Step 1 - Requirements
+## Step 1 - Firebase Requirements
+
+- Before sending push notifications you have to create private key from Google Firebase console.
+
+## Step 2 - Extending and Registering FirebaseMessagingService
+
+- Add new class which is extending FirebaseMessagingService. If you have already skip this step.
+
+```java
+public class MyFirebaseMessagingService extends FirebaseMessagingService {
+}
+```
+
+- Register as service to your application's manifest file like below.
+
+```xml
+<service android:name="MyFirebaseMessagingService" android:exported="false">
+ <intent-filter>
+   <action android:name="com.google.firebase.MESSAGING_EVENT" />
+ </intent-filter>
+</service>
+```
+
+## Step 3 - Google Android Application setup
+
+- To store your users push notification tokens add lines below to your class which extends FirebaseMessagingService
+
+```java
+@Override
+public void onNewToken(String s) {
+  super.onNewToken(s);
+  Xennio.plugins().get(FcmKitPlugin.class).savePushToken(s);
+}
+```
+
+- For handling incoming push notifications add lines below to your class which extends FirebaseMessagingService
+
+```java
+@Override
+public void onMessageReceived(RemoteMessage remoteMessage) {
+ super.onMessageReceived(remoteMessage);
+ FcmKitPlugin fcmKitPlugin = Xennio.plugins().get(FcmKitPlugin.class);
+ if (fcmKitPlugin.isXennioNotification(remoteMessage)) {
+    fcmKitPlugin.handlePushNotification(this, remoteMessage);
+ }
+}
+```
+
+- Now Google Android push notification setup completed in your app. You can test your implementation without creating distribution.
