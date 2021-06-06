@@ -1,4 +1,4 @@
-# Android SDK Setup
+# Google Android SDK Setup
 
 ### Integration of Xenn.io SDK to your Android native app with Java or Kotlin
 [![codecov](https://codecov.io/gh/xennio/harray-android-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/xennio/harray-android-sdk)
@@ -15,15 +15,15 @@
 
 ```java
 dependencies {
-implementation group: 'io.xenn', 
-  name: 'android-sdk', version: '3.1.3'
+ implementation group: 'io.xenn', name: 'android-sdk', version: '3.1.3'
+ implementation group: 'io.xenn',name: 'fcm-kit', version: '1.0.2'
 }
 ```
 Check latest version of SDK from [here](https://mvnrepository.com/artifact/io.xenn/android-sdk)
 
 - Refresh your dependencies from Android Studio
 
-## Step 3 - Configuring of Android SDK
+## Step 3 - Configuring of Google Android SDK
 Open your project's Application file and add the Xenn.io configuration codes with your credentials to onCreate method.
 
 ```java
