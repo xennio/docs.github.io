@@ -76,5 +76,3 @@ protected void onNewIntent(Intent intent) {
 Xennio.synchronizeIntentData(extraParameters);
 }
 ```
-
-## Correlating A/B test definitions with session

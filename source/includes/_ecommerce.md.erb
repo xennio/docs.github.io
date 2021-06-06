@@ -165,3 +165,59 @@ Xennio.ecommerce().orderFunnel(basketId: "basketId", step: "AddressInfoPage")
 ```java
 Xennio.ecommerce().orderFunnel("basketId", "AddressInfoPage");
 ```
+## Order
+
+Method should be called after if your customer completed a successful order. SDK provides builders to create an Order.
+
+- Order Item Structure
+
+Parameter           | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+productId           | String | false     | Identifier of product
+variant             | String | true      | Identifier of a variant if selected or present
+quantity            | Integer| false     | Quantity added to basket
+price               | Double | false     | Full price of product
+discountedPrice     | Double | true      | Discounted price of product
+currency            | String | false     | ISO currency code of product
+supplierId          | String | true      | If product supplied by multiple vendor add supplier id
+
+- Order Structure
+
+Parameter           | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+basketId            | String | false     | Unique identifier of basketId
+orderId             | String | false     | Unique identifier of orderId
+totalAmount         | Double | false     | Total Price of order
+discountAmount      | Double | false     | Discounted Price of order
+paymentMethod       | String | false     | Payment method of order. CreditCard, Cash, etc
+coupon              | String | true      | If present, coupon code of order
+discount            | String | true      | If present, discount name of order
+promotion           | String | true      | If present, promotion name of order
+
+
+```swift
+let order = Order.create(orderId: "orderId")
+  .addItem(productId: "product1", variantId: nil, quantity: 2, price: 20.0, discountedPrice: 15.0, currency: "USD", supplierId: nil)
+  .addItem(productId: "product2", variantId: nil, quantity: 2, price: 20.0, discountedPrice: 15.0, currency: "USD", supplierId: nil)
+  .totalAmount(totalAmount: 55)
+  .discountedAmount(discountedAmount: 35)
+  .withCoupon(couponName: "AppliedCouponCode")
+  .withDiscount(discountName: "Extra Discount Product 1")
+  .withPromotion(promotionName: "BuyOneGetTwo")
+
+Xennio.ecommerce().orderSuccess(basketId: "basketId", order: order)
+```
+
+```java
+Order order = Order.create("orderId")
+  .addItem("product1", "variantId", 2, 20.0, 15.0, "USD", "supplierId")
+  .addItem("product2", "variantId", 2, 20.0, 15.0, "USD", "supplierId")
+  .totalAmount(55.0)
+  .discountAmount(34.0)
+  .paidWith("CreditCard")
+  .withCoupon("AppliedCouponCode")
+  .withDiscount("Extra Discount Product 1")
+  .withPromotion("BuyOneGetTwo");
+
+Xennio.ecommerce().orderSuccess("basketId", order);
+```

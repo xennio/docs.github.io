@@ -16,7 +16,7 @@
 ```java
 dependencies {
 implementation group: 'io.xenn', 
-  name: 'android-sdk', version: '3.1.1'
+  name: 'android-sdk', version: '3.1.2'
 }
 ```
 Check latest version of SDK from [here](https://mvnrepository.com/artifact/io.xenn/android-sdk)
