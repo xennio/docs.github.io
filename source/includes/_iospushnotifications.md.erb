@@ -1,0 +1,86 @@
+# iOS Push Notifications
+
+## Step 1 - Requirements
+
+- Because of Xcode simulator doesn't have push notification support for testing purposes, you need an real iOS test device.
+- Apple Push Notification service SSL certificate.
+
+## Step 2 - Adding a Notification Service Extension
+
+The iOS notification service extension allows your iOS application to receive rich notifications.
+It's also required for Xenn.io's analytical and segmentation features.
+
+- In Xcode Select File > New > Target...
+- Select Notification Service Extension then press Next
+
+<%= image_tag "images/assets/iospushnotificationextension.jpg" %>
+
+- Enter your project name, organisational identifier, language and project then press finish
+
+<%= image_tag "images/assets/iospushnotificationextensionform.jpg" %>
+
+- Press Activate button
+
+<%= image_tag "images/assets/iospushnotificationextensionactivation.jpg" %>
+
+- Open project navigator, select the project directory and select the your extension which you created and targeted
+in the project and targets list.
+You have to set the Deployment Target to be iOS 10 which Apple had begun to support Rich Media for push.
+iOS SDK has no official suppoart for versions under 10.
+
+<%= image_tag "images/assets/iospushnotificationextensionprojectsettings.jpg" %>
+
+- Open notification extension service file to handle incoming push notification.
+
+```swift
+import UserNotifications
+import Xennio
+
+class NotificationService: UNNotificationServiceExtension {
+
+ var contentHandler: ((UNNotificationContent) -> Void)?
+ var bestAttemptContent: UNMutableNotificationContent?
+
+ override func didReceive(_ request: UNNotificationRequest, withContentHandler
+    contentHandler: @escaping (UNNotificationContent) -> Void) {
+  self.contentHandler = contentHandler
+  bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
+  if (Xennio.notifications().isXennioNotification(request: request)){
+   if let bestAttemptContent = bestAttemptContent {
+    Xennio.notifications().handlePushNotification(request: request, bestAttemptContent: bestAttemptContent,
+        withContentHandler: contentHandler)
+    contentHandler(bestAttemptContent)
+    }
+   }
+}
+}
+}
+```
+
+## Step 3 - Application setup
+
+- Open project navigator again and click your application in targets. Click +Capability button and search for Push Notifications and
+double click Push Notifications.
+
+<%= image_tag "images/assets/iospushnotificationextensionpushsettings.jpg" %>
+
+- Open Appdelegate file and add codes below to didRegisterForRemoteNotificationsWithDeviceToken method.
+
+```swift
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+ var token = ""
+ for i in 0..<deviceToken.count {
+     token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+ }
+ Xennio.savePushToken(deviceToken: token)
+}
+```
+- If you already collecting push notification tokens just call `Xennio.savePushToken(deviceToken: token)`
+
+- For more accurate push deliverability results and associate parameters with session add lines below to didReceiveRemoteNotification method
+
+```swift
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+ Xennio.notifications().handlePushNotification(userInfo: userInfo)
+}
+```

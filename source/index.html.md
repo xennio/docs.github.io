@@ -15,6 +15,8 @@ includes:
   - session_events
   - events
   - ecommerce.md.erb
+  - iospushnotifications.md.erb
+  - androidpushnotifications.md.erb
 
 search: false
 

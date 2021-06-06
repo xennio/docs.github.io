@@ -15,7 +15,7 @@
 
 ```swift
 target 'your-ios-application' do
- pod 'Xennio', '~> 2.5.7'
+ pod 'Xennio', '~> 2.5.8'
 end
 ```
 
@@ -40,4 +40,4 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 * Replace `YOUR-SDK-KEY` with your Application SDK Key
 
-Now IOS SDK Setup installation completed you can navigate from [here]() documentation for event collecting
+Now IOS SDK Setup installation completed you can navigate from [here](#events) documentation for event collecting

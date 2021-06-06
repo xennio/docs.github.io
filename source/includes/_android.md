@@ -37,4 +37,4 @@ public void onCreate() {
 
 * Replace `YOUR-SDK-KEY` with your Application SDK Key
 
-Now Android SDK Setup installation completed you can navigate from [here]() documentation for event collecting
+Now IOS SDK Setup installation completed you can navigate from [here](#events) documentation for event collecting
