@@ -1,0 +1,11 @@
+#Rest Api
+
+## Authentication
+
+Before trying to access resources request should contain headers below.
+
+Header              | Type   | Optional | Description
+---------           | -----  | --------- | -----------
+Date                | Date   | false     | Iso Date Format, should not before 1 minute ago
+X-Rest-Key          | String | false     | Application Rest Key
+X-Hash              | Double | false     | MD5(RestKey + Application Dev Key + Date)

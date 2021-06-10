@@ -15,7 +15,7 @@
 
 ```java
 dependencies {
- implementation group: 'io.xenn', name: 'android-sdk', version: '3.1.3'
+ implementation group: 'io.xenn', name: 'android-sdk', version: '3.1.4'
  implementation group: 'io.xenn',name: 'fcm-kit', version: '1.0.2'
 }
 ```
