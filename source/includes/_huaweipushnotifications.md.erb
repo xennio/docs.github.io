@@ -2,7 +2,7 @@
 
 ## Step 1 - Huawei Messaging Service Requirements
 
-- Before sending push notifications you have to create private key from Google Firebase console.
+- Before sending push notifications you have to resolve your HMS App Id and HMS Client Secret from Huawei's AppGalery Connect.
 
 ## Step 2 - Extending and Registering HmsMessageService
 
@@ -15,7 +15,7 @@ dependencies {
 }
 ```
 
-- Add new class which is extending FirebaseMessagingService. If you have already skip this step.
+- Add new class which is extending HmsMessageService. If you have already skip this step.
 
 ```java
 public class MyHmsMessagingService extends HmsMessageService {
