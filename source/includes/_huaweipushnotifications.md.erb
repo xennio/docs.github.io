@@ -1,0 +1,60 @@
+# Huawei Android Push Notifications
+
+## Step 1 - Huawei Messaging Service Requirements
+
+- Before sending push notifications you have to create private key from Google Firebase console.
+
+## Step 2 - Extending and Registering HmsMessageService
+
+- Make sure your dependencies contains Xennio Huawei Messaging Service Push kit
+
+```java
+dependencies {
+ implementation group: 'io.xenn', name: 'android-sdk', version: '3.1.3'
+ implementation group: 'io.xenn',name: 'hms-kit', version: '1.0.2'
+}
+```
+
+- Add new class which is extending FirebaseMessagingService. If you have already skip this step.
+
+```java
+public class MyHmsMessagingService extends HmsMessageService {
+}
+```
+
+- Register as service to your application's manifest file like below.
+
+```xml
+<service android:name="MyHmsMessagingService" android:exported="false">
+ <intent-filter>
+   <action android:name="com.google.firebase.MESSAGING_EVENT" />
+ </intent-filter>
+</service>
+```
+
+## Step 3 - Huawei Android Application setup
+
+- To store your users push notification tokens add lines below to your class which extends HmsMessageService
+
+```java
+@Override
+public void onNewToken(String s) {
+  super.onNewToken(s);
+  Xennio.plugins().get(HmsKitPlugin.class).savePushToken(s);
+}
+```
+
+- For handling incoming push notifications add lines below to your class which extends FirebaseMessagingService
+
+```java
+@Override
+public void onMessageReceived(RemoteMessage remoteMessage) {
+ super.onMessageReceived(remoteMessage);
+ HmsKitPlugin hmsKitPlugin = Xennio.plugins().get(HmsKitPlugin.class);
+ if(hmsKitPlugin.isXennioNotification(remoteMessage)){
+   hmsKitPlugin.handlePushNotification(this, remoteMessage);
+ }
+}
+```
+
+- Now Huawei Android push notification setup completed in your app. You can test your implementation without creating distribution.

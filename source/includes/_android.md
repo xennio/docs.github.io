@@ -19,7 +19,7 @@ dependencies {
  implementation group: 'io.xenn',name: 'fcm-kit', version: '1.0.2'
 }
 ```
-Check latest version of SDK from [here](https://mvnrepository.com/artifact/io.xenn/android-sdk)
+Check latest version of SDK from [here](https://mvnrepository.com/artifact/io.xenn)
 
 - Refresh your dependencies from Android Studio
 

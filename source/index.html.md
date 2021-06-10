@@ -17,6 +17,7 @@ includes:
   - ecommerce.md.erb
   - iospushnotifications.md.erb
   - androidpushnotifications.md.erb
+  - huaweipushnotifications.md.erb
 
 search: false
 
