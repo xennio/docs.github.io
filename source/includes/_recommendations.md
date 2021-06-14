@@ -16,14 +16,15 @@ Be sure that you added dependency to your `Podfile` file
 
 ```swift
 target 'your-ios-application' do
- pod 'Xennio', '~> 2.3.2'
+ pod 'Xennio', '~> 2.5.8'
 end
 ```
 
 After resolving dependencies configure your application with your provided Xenn.io key.
 
 ```swift
- Xennio.configure(sdkKey: "YOUR_SDK_KEY")
+let xennConfig = XennConfig.create(sdkKey: "YOUR-SDK-KEY")
+Xennio.configure(xennConfig: xennConfig)
 ```
 
 ## Android
@@ -50,7 +51,7 @@ In app module's build.gradle file, add dependency statement inside of dependenci
 ```java
 dependencies {
 implementation group: 'io.xenn', 
-    name: 'android-sdk', version: '2.9.4'
+    name: 'android-sdk', version: '3.1.5'
 }
 ```
 
@@ -59,7 +60,8 @@ Check latest version of SDK from [here](https://mvnrepository.com/artifact/io.xe
 After resolving dependencies configure your application with your provided Xenn.io key.
 
 ```java
-Xennio.configure(this, "XENN_SDK_KEY");
+XennConfig xennConfig = XennConfig.init("XENN_SDK_KEY");
+Xennio.configure(this, xennConfig);
 ```
 
 
