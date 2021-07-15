@@ -10,12 +10,13 @@ Before sending a notification you have to resolve your REST-KEY and DEV-KEY from
 You have to calculate hash before sending request on your back-end. Hash will be verified your identity and request. This hash should be
 renewed in each request. Hash is the MD5 value of concatenation of REST-KEY, DEV_KEY and ISO Formatted Date.
 
+### HTTP Request
 
 ```curl
 POST https://api.xenn.io/push-notification
 ```
 
-Headers
+### Header Parameters
 
 Request headers below should be added while making request.
 
@@ -25,7 +26,7 @@ X-Rest-Key  | Your Rest Key
 X-Hash      | MD5(Your Rest Key + Your Dev Key + Now (UTC ISODateTimeFormatted Date String))
 Date        | Now (UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.
 
-Body
+### Request Body Parameters
 
 Parameter           | Type          | Optional | Description
 ---------           | -----         | --------- | -----------
@@ -103,3 +104,10 @@ curl --location --request POST 'https://api.xenn.io/push-notification' \
     }
 }'
 ```
+
+### HTTP Status Codes
+
+Error Code | Meaning
+---------- | -------
+204 | Request is valid and your message will be delivered all tokens regarding this membership.
+401 | Unauthorized -- Your Request is not validated against your header parameters.
