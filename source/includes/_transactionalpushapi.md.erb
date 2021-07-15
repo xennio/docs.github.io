@@ -1,0 +1,105 @@
+# Transactional Push API
+
+In order to send push notifications to members you can use transactional push api. This api will be useful if you would like to notify
+your members about updates their specific contexts like 'Shipment status changes', 'Order status changes' etc...
+
+Before sending a notification you have to resolve your REST-KEY and DEV-KEY from console by visiting any application detail in your account.
+
+<%= image_tag "images/assets/applicationcredentials.jpg" %>
+
+You have to calculate hash before sending request on your back-end. Hash will be verified your identity and request. This hash should be
+renewed in each request. Hash is the MD5 value of concatenation of REST-KEY, DEV_KEY and ISO Formatted Date.
+
+
+```curl
+POST https://api.xenn.io/push-notification
+```
+
+Headers
+
+Request headers below should be added while making request.
+
+Header      | Name
+----------  | -------
+X-Rest-Key  | Your Rest Key
+X-Hash      | MD5(Your Rest Key + Your Dev Key + Now (UTC ISODateTimeFormatted Date String))
+Date        | Now (UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.
+
+Body
+
+Parameter           | Type          | Optional | Description
+---------           | -----         | --------- | -----------
+message             | PushMessage   | false     | Push notification type message (see below for details)
+recipient           | String        | false     | MemberId of your logged in customer
+
+
+PushMessage
+
+Parameter           | Type          | Optional  | Description
+---------           | -----         | --------- | -----------
+id                  | String        | true      | Push notification type message (see below for details)
+pushType            | String        | false     | Can be 'image' and 'text'
+title               | String        | false     | Title of the notification
+subtitle            | String        | true      | Sub title of the notification. Works in IOS only.
+body                | String        | false     | Message content
+badge               | Integer       | true      | Numeric value on the application logo
+sound               | String        | true      | Sound file name in your application
+imageUrl            | String        | true      | Absolute path of the image which you would like to show. Use CDN and check image specifications.
+extra               | PlatformExtra | false     | Extra parameters for specific purposes like analytics, deeplinks, etc. See below for details
+
+PlatformExtra
+
+Push extra is useful when you would like to reach some parameters regarding push notification.
+
+If you would like to track traffic from other analytics applications you can use UTM codes with adding to each platform parameter.
+'utm_source', 'utm_medium', 'utm_campaign'
+
+Parameter           | Type                  | Optional  | Description
+---------           | -----                 | --------- | -----------
+fcmAppPush          | Map[String, String]   | true      | Android push notification parameters.
+iosAppPush          | Map[String, String]   | true      | IOS push notification parameters.
+fcmWebPush          | Map[String, String]   | true      | Chrome based browsers push notification parameters.
+
+Request Sample
+
+```curl
+curl --location --request POST 'https://api.xenn.io/push-notification' \
+--header 'X-Rest-Key: XENN-RESTKEY' \
+--header 'X-Hash: 1eb7122bb76d48d57bb3157b54e4440d' \
+--header 'Date: 2021-05-19T19:05:00.000Z' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "memberId": "LOGGED_IN_CUSTOMTER_ID",
+    "message": {
+        "id": "ID_OF_CAMPAIGN",
+        "pushType": "image",
+        "title": "Transactional Push Message Title",
+        "body": "Transactional Push Message Body",
+        "imageUrl": "https://CDN_IMAGE_URL",
+        "badge": 3,
+        "extra": {
+            "fcmWebPush": {
+                "url": "https://www.google.com",
+                "customParameter": "customValue"
+                "utm_source": "xenn",
+                "utm_medium": "push_web",
+                "utm_campaign": "demo"
+            },
+            "fcmAppPush": {
+                 "url": "https://www.google.com",
+                 "customParameter": "customValue"
+                 "utm_source": "xenn",
+                 "utm_medium": "push_android",
+                 "utm_campaign": "demo"
+            },
+            "iosAppPush" : {
+                "url": "https://www.youtapplication.com",
+                "customParameter": "customValue"
+                "utm_source": "xenn",
+                "utm_medium": "push_ios",
+                "utm_campaign": "demo"
+            }
+        }
+    }
+}'
+```
