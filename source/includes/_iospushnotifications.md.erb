@@ -49,7 +49,6 @@ class NotificationService: UNNotificationServiceExtension {
    if let bestAttemptContent = bestAttemptContent {
     Xennio.notifications().handlePushNotification(request: request, bestAttemptContent: bestAttemptContent,
         withContentHandler: contentHandler)
-    contentHandler(bestAttemptContent)
     }
    }
 }
@@ -68,20 +67,29 @@ double click Push Notifications.
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
- var token = ""
- for i in 0..<deviceToken.count {
-     token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
- }
- Xennio.savePushToken(deviceToken: token)
+    let tokenComponents = deviceToken.map { data in String(format: "%02.2hhx", data) }
+    let deviceTokenString = tokenComponents.joined()
+    Xennio.savePushToken(deviceToken: deviceTokenString)
 }
 ```
 - If you already collecting push notification tokens just call `Xennio.savePushToken(deviceToken: token)`
 
-- For more accurate push deliverability results and associate parameters with session add lines below to didReceiveRemoteNotification method
+- For more accurate push deliverability results, handling deeplink or universal links
+ and associate parameters with session add lines below to didReceiveRemoteNotification method
 
 ```swift
 func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
- Xennio.notifications().handlePushNotification(userInfo: userInfo)
+    if let pushSource = userInfo["source"] as? String {
+         if "xennio" == pushSource as? String {
+             Xennio.notifications().pushMessageOpened(pushContent: userInfo)
+
+             if let launch_url = userInfo["launch_url"] as? String {
+                 // Handle universal or deeplink  here
+             }
+             // Handle extra parameters here
+         }
+    }
+
 }
 ```
 - Now iOS push notification setup completed in your app. You have to create distribution for testing end to end integration.
