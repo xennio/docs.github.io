@@ -19,6 +19,7 @@ includes:
   - androidpushnotifications.md.erb
   - huaweipushnotifications.md.erb
   - transactionalpushapi.md.erb
+  - feedingmembers.md.erb
 
 search: false
 

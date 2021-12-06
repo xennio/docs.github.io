@@ -1,0 +1,81 @@
+# Feeding Members
+
+In order to use member attributes in push messages or using your existing segments while creating audiences, you have to update your application
+members with using this api.
+
+<%= image_tag "images/assets/applicationcredentials.jpg" %>
+
+You have to calculate hash before sending request on your back-end. Hash will be verified your identity and request. This hash should be
+renewed in each request. Hash is the MD5 value of concatenation of REST-KEY, DEV_KEY and ISO Formatted Date.
+
+### HTTP Request
+
+```curl
+POST https://api.xenn.io/members/bulk
+```
+
+### Header Parameters
+
+Request headers below should be added while making request.
+
+Header      | Name
+----------  | -------
+X-Rest-Key  | Your Rest Key
+X-Hash      | MD5(Your Rest Key + Your Dev Key + Now (UTC ISODateTimeFormatted Date String))
+Date        | Now (UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.
+
+### Request Body Parameters
+
+Parameter           | Type              | Optional | Description
+---------           | -----             | --------- | -----------
+updates             | List[Member]      | false     | Member Type type message (see below for details)
+
+
+Member
+
+Parameter           | Type          | Optional  | Description
+---------           | -----         | --------- | -----------
+id                  | String        | false     | Member id
+name                | String        | true      | Name
+surname             | String        | true      | Surname
+email               | String        | true      | Email address
+birthDate           | DateTime      | true      | UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.
+registerDate        | DateTime      | false     | UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.
+gender              | String        | true      | Gender
+phoneNumber         | String        | true      | Phone number
+segments            | String        | true      | Internal segments. If you have more than one segments seperate them using '#'. Eg: Gold#Elite#FreeCargo
+
+Request Sample
+
+```curl
+curl --location --request POST 'https://api.xenn.io/members/bulk' \
+--header 'X-Rest-Key: XENN-RESTKEY' \
+--header 'X-Hash: 1eb7122bb76d48d57bb3157b54e4440d' \
+--header 'Date: 2021-05-19T19:05:00.000Z' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+                "updates": [
+                    {
+                        "id": "12312",
+                        "name": "paul",
+                        "surname": "stanley",
+                        "segments": "Gold#FreeCargo#TestUsers",
+                        "registerDate": "2021-05-19T19:05:00.000Z"
+                    },
+                    {
+                        "id": "12312",
+                        "name": "paul",
+                        "surname": "gilbert",
+                        "segments": "ProdUsers#LikelyChurn",
+                        "registerDate": "2021-05-19T19:05:00.000Z"
+                    }
+                ]
+            }'
+```
+
+### HTTP Status Codes
+
+Error Code | Meaning
+---------- | -------
+200        | Request is valid and members will be updated eventually
+401        | Unauthorized -- Your Request is not validated against your header parameters.
