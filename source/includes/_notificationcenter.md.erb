@@ -1,0 +1,23 @@
+# Notification Center
+
+Notification Center is a great feature for native mobile apps that lets customers see push notifications they missed or never saw.
+
+## Loading notifications from IOS SDK
+
+```swift
+      var pushNotifications: Array<Dictionary<String, String>>?
+      Xennio.pushMessagesHistory().getPushMessagesHistory(size: 10), callback: { (result) in
+          pushNotifications = result
+      })
+```
+
+## Loading notifications from Android SDK
+
+```java
+    Xennio.pushMessagesHistory().getPushMessagesHistory(10, new ResultConsumer<List<Map<String, String>>>() {
+        @Override
+        public void consume(List<Map<String, String>> data) {
+            XennioLogger.log("PushMessagesHistory data is here! : " + data);
+        }
+    });
+```
