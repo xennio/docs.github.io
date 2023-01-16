@@ -1,0 +1,1808 @@
+
+<!doctype html>
+<html>
+  <head>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPPKYZ06RF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MPPKYZ06RF');
+    </script>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Xennio API Reference</title>
+    <link rel=icon href="https://console.xenn.io/static/favicon.ico">
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-d7721dfb.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-370045eb.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch-ec00d1ce.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-d731aa28.png" class="logo" alt="" />
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction-xenn-io" class="toc-h1 toc-link" data-title="Introduction Xenn.io">Introduction Xenn.io</a>
+          </li>
+          <li>
+            <a href="#applications" class="toc-h1 toc-link" data-title="Applications">Applications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-application" class="toc-h2 toc-link" data-title="Creating Application">Creating Application</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ios-sdk-setup" class="toc-h1 toc-link" data-title="iOS SDK Setup">iOS SDK Setup</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#integration-of-xenn-io-sdk-to-your-ios-native-app-with-swift-or-objective-c" class="toc-h2 toc-link" data-title="Integration of Xenn.io SDK to your iOS native app with Swift or Objective-C">Integration of Xenn.io SDK to your iOS native app with Swift or Objective-C</a>
+                  </li>
+                  <li>
+                    <a href="#step-1-requirements" class="toc-h2 toc-link" data-title="Step 1 - Requirements">Step 1 - Requirements</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-installing-the-xenn-io-sdk" class="toc-h2 toc-link" data-title="Step 2 - Installing the Xenn.io SDK">Step 2 - Installing the Xenn.io SDK</a>
+                  </li>
+                  <li>
+                    <a href="#step-3-configuring-of-ios-sdk" class="toc-h2 toc-link" data-title="Step 3 - Configuring of iOS SDK">Step 3 - Configuring of iOS SDK</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#google-android-sdk-setup" class="toc-h1 toc-link" data-title="Google Android SDK Setup">Google Android SDK Setup</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#integration-of-xenn-io-sdk-to-your-android-native-app-with-java-or-kotlin" class="toc-h2 toc-link" data-title="Integration of Xenn.io SDK to your Android native app with Java or Kotlin">Integration of Xenn.io SDK to your Android native app with Java or Kotlin</a>
+                  </li>
+                  <li>
+                    <a href="#step-1-requirements" class="toc-h2 toc-link" data-title="Step 1 - Requirements">Step 1 - Requirements</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-installing-the-xenn-io-sdk" class="toc-h2 toc-link" data-title="Step 2 - Installing the Xenn.io SDK">Step 2 - Installing the Xenn.io SDK</a>
+                  </li>
+                  <li>
+                    <a href="#step-3-configuring-of-google-android-sdk" class="toc-h2 toc-link" data-title="Step 3 - Configuring of Google Android SDK">Step 3 - Configuring of Google Android SDK</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#session-parameters" class="toc-h1 toc-link" data-title="Session Parameters">Session Parameters</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#identifying-your-members" class="toc-h2 toc-link" data-title="Identifying your members">Identifying your members</a>
+                  </li>
+                  <li>
+                    <a href="#removing-member-from-session" class="toc-h2 toc-link" data-title="Removing member from session">Removing member from session</a>
+                  </li>
+                  <li>
+                    <a href="#correlating-external-application-parameters-with-session" class="toc-h2 toc-link" data-title="Correlating external application parameters with session">Correlating external application parameters with session</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#events" class="toc-h1 toc-link" data-title="Events">Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#page-views" class="toc-h2 toc-link" data-title="Page Views">Page Views</a>
+                  </li>
+                  <li>
+                    <a href="#action-results" class="toc-h2 toc-link" data-title="Action Results">Action Results</a>
+                  </li>
+                  <li>
+                    <a href="#impressions" class="toc-h2 toc-link" data-title="Impressions">Impressions</a>
+                  </li>
+                  <li>
+                    <a href="#custom-events" class="toc-h2 toc-link" data-title="Custom Events">Custom Events</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#e-commerce-events" class="toc-h1 toc-link" data-title="E-commerce Events">E-commerce Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-views" class="toc-h2 toc-link" data-title="Product Views">Product Views</a>
+                  </li>
+                  <li>
+                    <a href="#category-views" class="toc-h2 toc-link" data-title="Category Views">Category Views</a>
+                  </li>
+                  <li>
+                    <a href="#search-result" class="toc-h2 toc-link" data-title="Search Result">Search Result</a>
+                  </li>
+                  <li>
+                    <a href="#add-to-cart" class="toc-h2 toc-link" data-title="Add To Cart">Add To Cart</a>
+                  </li>
+                  <li>
+                    <a href="#remove-from-cart" class="toc-h2 toc-link" data-title="Remove From Cart">Remove From Cart</a>
+                  </li>
+                  <li>
+                    <a href="#cart-view" class="toc-h2 toc-link" data-title="Cart View">Cart View</a>
+                  </li>
+                  <li>
+                    <a href="#order-funnel" class="toc-h2 toc-link" data-title="Order Funnel">Order Funnel</a>
+                  </li>
+                  <li>
+                    <a href="#order" class="toc-h2 toc-link" data-title="Order">Order</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ios-push-notifications" class="toc-h1 toc-link" data-title="iOS Push Notifications">iOS Push Notifications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#step-1-apple-requirements" class="toc-h2 toc-link" data-title="Step 1 - Apple Requirements">Step 1 - Apple Requirements</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-adding-a-notification-service-extension" class="toc-h2 toc-link" data-title="Step 2 - Adding a Notification Service Extension">Step 2 - Adding a Notification Service Extension</a>
+                  </li>
+                  <li>
+                    <a href="#step-3-ios-application-setup" class="toc-h2 toc-link" data-title="Step 3 - iOS Application setup">Step 3 - iOS Application setup</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#google-android-push-notifications" class="toc-h1 toc-link" data-title="Google Android Push Notifications">Google Android Push Notifications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#step-1-firebase-requirements" class="toc-h2 toc-link" data-title="Step 1 - Firebase Requirements">Step 1 - Firebase Requirements</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-extending-and-registering-firebasemessagingservice" class="toc-h2 toc-link" data-title="Step 2 - Extending and Registering FirebaseMessagingService">Step 2 - Extending and Registering FirebaseMessagingService</a>
+                  </li>
+                  <li>
+                    <a href="#step-3-google-android-application-setup" class="toc-h2 toc-link" data-title="Step 3 - Google Android Application setup">Step 3 - Google Android Application setup</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#huawei-android-push-notifications" class="toc-h1 toc-link" data-title="Huawei Android Push Notifications">Huawei Android Push Notifications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#step-1-huawei-messaging-service-requirements" class="toc-h2 toc-link" data-title="Step 1 - Huawei Messaging Service Requirements">Step 1 - Huawei Messaging Service Requirements</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-extending-and-registering-hmsmessageservice" class="toc-h2 toc-link" data-title="Step 2 - Extending and Registering HmsMessageService">Step 2 - Extending and Registering HmsMessageService</a>
+                  </li>
+                  <li>
+                    <a href="#step-3-huawei-android-application-setup" class="toc-h2 toc-link" data-title="Step 3 - Huawei Android Application setup">Step 3 - Huawei Android Application setup</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#notification-center" class="toc-h1 toc-link" data-title="Notification Center">Notification Center</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#loading-notifications-from-ios-sdk" class="toc-h2 toc-link" data-title="Loading notifications from IOS SDK">Loading notifications from IOS SDK</a>
+                  </li>
+                  <li>
+                    <a href="#loading-notifications-from-android-sdk" class="toc-h2 toc-link" data-title="Loading notifications from Android SDK">Loading notifications from Android SDK</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#transactional-push-api" class="toc-h1 toc-link" data-title="Transactional Push API">Transactional Push API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#header-parameters" class="toc-h2 toc-link" data-title="Header Parameters">Header Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#request-body-parameters" class="toc-h2 toc-link" data-title="Request Body Parameters">Request Body Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#http-status-codes" class="toc-h2 toc-link" data-title="HTTP Status Codes">HTTP Status Codes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#feeding-members" class="toc-h1 toc-link" data-title="Feeding Members">Feeding Members</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#header-parameters" class="toc-h2 toc-link" data-title="Header Parameters">Header Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#request-body-parameters" class="toc-h2 toc-link" data-title="Request Body Parameters">Request Body Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#http-status-codes" class="toc-h2 toc-link" data-title="HTTP Status Codes">HTTP Status Codes</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='http://console.xenn.io' target='_blank'>Xenn.io Console Access</a></li>
+            <li><a href='https://github.com/slatedocs/slate' target='_blank'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="content">
+        <h1 id='introduction-xenn-io'>Introduction Xenn.io</h1>
+<p>Welcome to the Xenn.io documentation! You can use our SDKs for collecting your events, handling push notifications and load contents for recommendations.
+We have SDKs for IOS, Google Store Android, Huawei Store Android and Web Applications! </p>
+<h1 id='applications'>Applications</h1>
+<p>Xenn.io provides IOS, Android and JavaScript SDK&#39;s for collecting application event data.
+The following guide will describe you how to integrate your application using related SDK.</p>
+<h2 id='creating-application'>Creating Application</h2>
+<p>For resolving SDK code blocks, from <a href='https://console.xenn.io' target='_blank'>xenn.io management console</a>, you need to complete application setup from applications.
+<br>
+<br>
+For creating application navigate from menu Setup -&gt; Application or
+click <a href='https://console.xenn.io/applications' target='_blank'>here</a>
+<br>
+<br>
+<img src="images/assets/applicationsmenu-2e1d6c69.jpg" alt="" />
+<br>
+<br>
+Click Create New Application button or click <a href='https://console.xenn.io/applications/create' target='_blank'>here</a>
+<br>
+<br>
+<img src="images/assets/createapplication-99daf326.jpg" alt="" />
+<br>
+<br>
+Application setup page will appear. Select your application type, fill form and click save to create your application.</p>
+<h3 id='javascript-client'>JavaScript Client</h3>
+<p><img src="images/assets/applicationscreate-fbdbc255.jpg" alt="" /></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Application Name</td>
+<td>false</td>
+<td>Friendly name of your application (Customer Web Site)</td>
+</tr>
+<tr>
+<td>Host To Track</td>
+<td>false</td>
+<td>JavaScript client makes OPTION type request for handling events. Host should be present without HTTP/HTTPS</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>false</td>
+<td>Identifies your application running environment</td>
+</tr>
+</tbody></table>
+<h3 id='ios-client'>IOS Client</h3>
+<p><img src="images/assets/createapplicationios-e90b9565.jpg" alt="" /></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Application Name</td>
+<td>false</td>
+<td>Friendly name of your application (IOS Aplication)</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>false</td>
+<td>Identifies your application running environment</td>
+</tr>
+</tbody></table>
+<h3 id='android-fcm-client'>Android FCM Client</h3>
+<p><img src="images/assets/createapplicationfcm-42352a60.jpg" alt="" /></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Application Name</td>
+<td>false</td>
+<td>Friendly name of your application (Google Store Android Application)</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>false</td>
+<td>Identifies your application running environment</td>
+</tr>
+</tbody></table>
+<h3 id='android-huawei-client'>Android Huawei Client</h3>
+<p><img src="images/images/assets/createapplicationhuawei.jpg" alt="" /></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Application Name</td>
+<td>false</td>
+<td>Friendly name of your application (Huawei Store Android Application)</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>false</td>
+<td>Identifies your application running environment</td>
+</tr>
+</tbody></table>
+<h1 id='ios-sdk-setup'>iOS SDK Setup</h1><h3 id='integration-of-xenn-io-sdk-to-your-ios-native-app-with-swift-or-objective-c'>Integration of Xenn.io SDK to your iOS native app with Swift or Objective-C</h3>
+<p><a href="https://codecov.io/gh/xennio/harray-ios-sdk"><img src="https://codecov.io/gh/xennio/harray-ios-sdk/branch/master/graph/badge.svg" alt="codecov" /></a>
+<a href="https://cocoapods.org/pods/Xennio"><img src="https://img.shields.io/cocoapods/v/Xennio.svg?style=flat" alt="Version" /></a>
+<img src="https://img.shields.io/github/license/xennio/harray-ios-sdk?style=flat-square" alt="GitHub" /></p>
+<h2 id='step-1-requirements'>Step 1 - Requirements</h2>
+<ul>
+<li>Xenn.io account if you do not already have one</li>
+<li>Your Xenn.io App ID, available in Setup &gt; Applications in the Xenn.io console</li>
+</ul>
+<h2 id='step-2-installing-the-xenn-io-sdk'>Step 2 - Installing the Xenn.io SDK</h2><h3 id='setup-with-cocoa-pods'>Setup with Cocoa Pods</h3>
+<ul>
+<li>Add the Xenn.io dependency to project&#39;s <code>Podfile</code> like below</li>
+</ul>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="n">target</span> <span class="err">'</span><span class="n">your</span><span class="o">-</span><span class="n">ios</span><span class="o">-</span><span class="n">application</span><span class="err">'</span> <span class="k">do</span>
+ <span class="n">pod</span> <span class="err">'</span><span class="kt">Xennio</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="o">~&gt;</span> <span class="mf">2.5</span><span class="o">.</span><span class="mi">8</span><span class="err">'</span>
+<span class="n">end</span>
+</code></pre></div>
+<ul>
+<li>Run the following commands in terminal in your project folder</li>
+</ul>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="n">pod</span> <span class="n">repo</span> <span class="n">update</span>
+<span class="n">pod</span> <span class="n">install</span>
+</code></pre></div><h2 id='step-3-configuring-of-ios-sdk'>Step 3 - Configuring of iOS SDK</h2>
+<p>Open AppDelegate file and add the Xenn.io configuration codes with your credentials to didFinishLaunchingWithOptions method.</p>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:</span> 
+ <span class="p">[</span><span class="kt">UIApplication</span><span class="o">.</span><span class="kt">LaunchOptionsKey</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+ <span class="k">let</span> <span class="nv">xennConfig</span> <span class="o">=</span> <span class="kt">XennConfig</span><span class="o">.</span><span class="nf">create</span><span class="p">(</span><span class="nv">sdkKey</span><span class="p">:</span> <span class="s">"YOUR-SDK-KEY"</span><span class="p">)</span>
+ <span class="kt">Xennio</span><span class="o">.</span><span class="nf">configure</span><span class="p">(</span><span class="nv">xennConfig</span><span class="p">:</span> <span class="n">xennConfig</span><span class="p">)</span>   
+ <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Replace <code>YOUR-SDK-KEY</code> with your Application SDK Key</li>
+</ul>
+
+<p>Now IOS SDK Setup installation completed you can navigate from <a href="#events">here</a> documentation for event collecting</p>
+<h1 id='google-android-sdk-setup'>Google Android SDK Setup</h1><h3 id='integration-of-xenn-io-sdk-to-your-android-native-app-with-java-or-kotlin'>Integration of Xenn.io SDK to your Android native app with Java or Kotlin</h3>
+<p><a href="https://codecov.io/gh/xennio/harray-android-sdk"><img src="https://codecov.io/gh/xennio/harray-android-sdk/branch/master/graph/badge.svg" alt="codecov" /></a>
+<img src="https://img.shields.io/github/license/xennio/harray-android-sdk?style=flat-square" alt="GitHub" />
+<a href="https://maven-badges.herokuapp.com/maven-central/io.xenn/android-sdk"><img src="https://maven-badges.herokuapp.com/maven-central/io.xenn/android-sdk/badge.svg?style=plastic" alt="Maven Central" /></a></p>
+<h2 id='step-1-requirements'>Step 1 - Requirements</h2>
+<ul>
+<li>Xenn.io account if you do not already have one</li>
+<li>Your Xenn.io App ID, available in Setup &gt; Applications in the Xenn.io console</li>
+</ul>
+<h2 id='step-2-installing-the-xenn-io-sdk'>Step 2 - Installing the Xenn.io SDK</h2><h3 id='dependency-repository-config'>Dependency Repository Config</h3>
+<ul>
+<li>In app module&#39;s build.gradle file, add dependency statement inside of dependencies block</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="n">dependencies</span> <span class="o">{</span>
+ <span class="n">implementation</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">io</span><span class="o">.</span><span class="na">xenn</span><span class="err">'</span><span class="o">,</span> <span class="nl">name:</span> <span class="err">'</span><span class="n">android</span><span class="o">-</span><span class="n">sdk</span><span class="err">'</span><span class="o">,</span> <span class="nl">version:</span> <span class="err">'</span><span class="mf">3.1</span><span class="o">.</span><span class="mi">5</span><span class="err">'</span>
+ <span class="n">implementation</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">io</span><span class="o">.</span><span class="na">xenn</span><span class="err">'</span><span class="o">,</span><span class="nl">name:</span> <span class="err">'</span><span class="n">fcm</span><span class="o">-</span><span class="n">kit</span><span class="err">'</span><span class="o">,</span> <span class="nl">version:</span> <span class="err">'</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="err">'</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>Check latest version of SDK from <a href="https://mvnrepository.com/artifact/io.xenn">here</a></p>
+
+<ul>
+<li>Refresh your dependencies from Android Studio</li>
+</ul>
+<h2 id='step-3-configuring-of-google-android-sdk'>Step 3 - Configuring of Google Android SDK</h2>
+<p>Open your project&#39;s Application file and add the Xenn.io configuration codes with your credentials to onCreate method.</p>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+  <span class="nc">XennConfig</span> <span class="n">xennConfig</span> <span class="o">=</span> <span class="nc">XennConfig</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="s">"YOUR_SDK_KEY"</span><span class="o">).</span><span class="na">useXennPlugin</span><span class="o">(</span><span class="nc">FcmKitPlugin</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="nc">Xennio</span><span class="o">.</span><span class="na">configure</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">xennConfig</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Replace <code>YOUR-SDK-KEY</code> with your Application SDK Key</li>
+</ul>
+
+<p>Now IOS SDK Setup installation completed you can navigate from <a href="#events">here</a> documentation for event collecting</p>
+<h1 id='session-parameters'>Session Parameters</h1>
+<p>Xenn.io SDK is managing session automatically. To create more deep analysis before firing events you have to consider completing session setup.</p>
+<h2 id='identifying-your-members'>Identifying your members</h2>
+<p>You can correlate your logged-in session activities with using SDK login method. You can call this method anytime after configuring Xenn.io.
+If this method called before any eventing activities, memberId will be inserted session variables. If this method called after any eventing
+activities new session will start and all events will be correlated with new session.</p>
+<h3 id='ios-sdk'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">login</span><span class="p">(</span><span class="nv">memberId</span><span class="p">:</span> <span class="s">"YOUR_MEMBER_ID"</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="s">"YOUR_MEMBER_ID"</span><span class="o">);</span>
+</code></pre></div><h2 id='removing-member-from-session'>Removing member from session</h2>
+<p>In case of removing association between session and member you can simply call SDK logout method. If this method called after any eventing
+activities new session will start and all events will be correlated with new session.</p>
+<h3 id='ios-sdk-2'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">logout</span><span class="p">()</span>
+</code></pre></div><h3 id='android-sdk-2'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">logout</span><span class="o">();</span>
+</code></pre></div><h2 id='correlating-external-application-parameters-with-session'>Correlating external application parameters with session</h2>
+<p>Most of the applications would like to track their external traffic sources. For tracking external traffic sources, Xenn.io SDK provides
+method to synchronize parameters like utm_source, utm_campaign_ utm_medium, utm_term, utm_content and gclid(Google Ad Id).</p>
+<h3 id='ios-sdk-3'>iOS SDK</h3>
+<p>Open AppDelegate file and add lines to application open url method.</p>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="kd">open</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+                     <span class="nv">options</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIApplication</span><span class="o">.</span><span class="kt">OpenURLOptionsKey</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:])</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+ <span class="c1">// An extension method can be used for mapping all url query string parameters to Dictionary</span>
+ <span class="k">let</span> <span class="nv">externalParameters</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">queryDictionary</span>
+ <span class="k">if</span><span class="p">(</span><span class="n">externalParameters</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kt">Xennio</span><span class="o">.</span><span class="nf">synchronizeWith</span><span class="p">(</span><span class="nv">externalParameters</span><span class="p">:</span> <span class="n">externalParameters</span><span class="o">!</span><span class="p">)</span>
+ <span class="p">}</span>
+ <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div><h3 id='android-sdk-3'>Android SDK</h3>
+<p>In MainActivity add lines to onNewIntent method</p>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onNewIntent</span><span class="o">(</span><span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onNewIntent</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+  <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span><span class="nc">Object</span><span class="o">&gt;</span> <span class="n">extraParameters</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+  <span class="nc">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">();</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">bundle</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">bundle</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">extraParameters</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">bundle</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">));</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="nc">Xennio</span><span class="o">.</span><span class="na">synchronizeIntentData</span><span class="o">(</span><span class="n">extraParameters</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div><h1 id='events'>Events</h1>
+<p>Xenn.io SDK provides both structured event collection and custom event collection methods
+The following guide will describe you how to create event with SDK.</p>
+<h2 id='page-views'>Page Views</h2>
+<p>Page view events should be fired whenever a page rendered. You should set pageType in method parameters.
+You can add extra parameters to your page view events.</p>
+<h3 id='ios-sdk'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">pageView</span><span class="p">(</span><span class="nv">pageType</span><span class="p">:</span> <span class="s">"homePage"</span><span class="p">)</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">pageView</span><span class="p">(</span><span class="nv">pageType</span><span class="p">:</span> <span class="s">"homePage"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"url"</span><span class="p">:</span> <span class="s">"https://xenn.io/detail"</span><span class="p">,</span> 
+<span class="s">"id"</span><span class="p">:</span> <span class="s">"12312"</span><span class="p">,</span> <span class="s">"hasAccess"</span><span class="p">:</span> <span class="kc">false</span><span class="p">])</span>
+</code></pre></div><h3 id='android-sdk'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">pageView</span><span class="o">(</span><span class="s">"homePage"</span><span class="o">);</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"url"</span><span class="o">,</span> <span class="s">"https://xenn.io/detail"</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"12312"</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"hasAccess"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">pageView</span><span class="o">(</span><span class="s">"homePage"</span><span class="o">,</span> <span class="n">params</span><span class="o">);</span>
+</code></pre></div><h2 id='action-results'>Action Results</h2>
+<p>Action results should be fired whenever a visitor takes action like submit a form, change sorting direction, adding item to cart. 
+You should set type of action in method parameters. You can add extra parameters to your action result events.</p>
+<h3 id='ios-sdk-2'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">actionResult</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="s">"testAction"</span><span class="p">)</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">actionResult</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="s">"homePage"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"url"</span><span class="p">:</span> <span class="s">"https://xenn.io/detail"</span><span class="p">,</span> 
+<span class="s">"id"</span><span class="p">:</span> <span class="s">"12312"</span><span class="p">,</span> <span class="s">"hasAccess"</span><span class="p">:</span> <span class="kc">false</span><span class="p">])</span>
+</code></pre></div><h3 id='android-sdk-2'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">actionResult</span><span class="o">(</span><span class="s">"testAction"</span><span class="o">);</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"url"</span><span class="o">,</span> <span class="s">"https://xenn.io/detail"</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"12312"</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"hasAccess"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">actionResult</span><span class="o">(</span><span class="s">"testAction"</span><span class="o">,</span> <span class="n">params</span><span class="o">);</span>
+</code></pre></div><h2 id='impressions'>Impressions</h2>
+<p>Impression should be fired whenever application displays banner, product, listing etc. 
+You should set type of action in method parameters. You can add extra parameters to your impression events.</p>
+<h3 id='ios-sdk-3'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">impression</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="s">"bannerView"</span><span class="p">)</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">impression</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="s">"bannerView"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"entity"</span><span class="p">:</span> <span class="s">"banners"</span><span class="p">,</span> 
+<span class="s">"id"</span><span class="p">:</span> <span class="s">"12312"</span><span class="p">,</span> <span class="s">"hasAccess"</span><span class="p">:</span> <span class="kc">false</span><span class="p">])</span>
+</code></pre></div><h3 id='android-sdk-3'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">impression</span><span class="o">(</span><span class="s">"bannerView"</span><span class="o">);</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"entity"</span><span class="o">,</span> <span class="s">"banners"</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"12312"</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"hasAccess"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">impression</span><span class="o">(</span><span class="s">"bannerView"</span><span class="o">,</span> <span class="n">params</span><span class="o">);</span>
+</code></pre></div><h2 id='custom-events'>Custom Events</h2>
+<p>Custom events can also stored in Xenn.io. You cannot use in segmentation or queries but it will be stored like other events. 
+You should set name of custom event in method parameters. You can add extra parameters to your custom events.</p>
+<h3 id='ios-sdk-4'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">custom</span><span class="p">(</span><span class="nv">eventName</span><span class="p">:</span> <span class="s">"Click"</span><span class="p">)</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="kt">Xennio</span><span class="o">.</span><span class="nf">eventing</span><span class="p">()</span><span class="o">.</span><span class="nf">custom</span><span class="p">(</span><span class="nv">eventName</span><span class="p">:</span> <span class="s">"Click"</span><span class="p">,</span> <span class="nv">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"buttonName"</span><span class="p">:</span> <span class="s">"Add To Cart"</span><span class="p">,</span> <span class="s">"origin"</span><span class="p">:</span> <span class="s">"productDetail"</span><span class="p">])</span>
+</code></pre></div><h3 id='android-sdk-4'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">custom</span><span class="o">(</span><span class="s">"Click"</span><span class="o">);</span>
+<span class="c1">// Page view events with extra parameters</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"buttonName"</span><span class="o">,</span> <span class="s">"Add To Cart"</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"origin"</span><span class="o">,</span> <span class="s">"productDetail"</span><span class="o">);</span>
+<span class="nc">Xennio</span><span class="o">.</span><span class="na">eventing</span><span class="o">().</span><span class="na">custom</span><span class="o">(</span><span class="s">"Click"</span><span class="o">,</span> <span class="n">params</span><span class="o">);</span>
+</code></pre></div><h1 id='e-commerce-events'>E-commerce Events</h1>
+<p>Xenn.io SDK provides structured e-commerce events for easy tracking without missing data. This method set will same api
+with predefined method and properties.</p>
+<h2 id='product-views'>Product Views</h2>
+<p>Method should be called whenever customer opens a product detail page. Check the data structure for feeding relevant
+fields and data.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productId</td>
+<td>String</td>
+<td>false</td>
+<td>Identifier of product</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>String</td>
+<td>true</td>
+<td>Identifier of a variant if selected or present</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Double</td>
+<td>false</td>
+<td>Full price of product</td>
+</tr>
+<tr>
+<td>discountedPrice</td>
+<td>Double</td>
+<td>true</td>
+<td>Discounted price of product</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>false</td>
+<td>ISO currency code of product</td>
+</tr>
+<tr>
+<td>supplierId</td>
+<td>String</td>
+<td>true</td>
+<td>If product supplied by multiple vendor add supplier id</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>true</td>
+<td>Url path of product detail page</td>
+</tr>
+</tbody></table>
+<h3 id='ios-sdk'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">productView</span><span class="p">(</span><span class="nv">productId</span><span class="p">:</span> <span class="s">"1231"</span><span class="p">,</span> <span class="nv">variantId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">price</span><span class="p">:</span> <span class="mf">28.2</span><span class="p">,</span> <span class="nv">discountedPrice</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span>
+<span class="nv">currency</span><span class="p">:</span> <span class="s">"USD"</span><span class="p">,</span> <span class="nv">supplierId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="s">"http://xenn.io/productpath"</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">productView</span><span class="o">(</span><span class="s">"1003"</span><span class="o">,</span> <span class="s">"small"</span><span class="o">,</span> <span class="mi">200</span><span class="n">d</span><span class="o">,</span> <span class="mi">180</span><span class="n">d</span><span class="o">,</span> <span class="s">"USD"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span>
+<span class="s">"https://commercedemo.xenn.io/proteus-fitness-jackshirt.html"</span><span class="o">);</span>
+</code></pre></div><h2 id='category-views'>Category Views</h2>
+<p>Method should be called whenever customer opens a category page. Check the data structure for feeding relevant
+fields and data.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categoryId</td>
+<td>String</td>
+<td>false</td>
+<td>Identifier of category</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>true</td>
+<td>Url path of category detail page</td>
+</tr>
+</tbody></table>
+<h3 id='ios-sdk-2'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">categoryView</span><span class="p">(</span><span class="nv">categoryId</span><span class="p">:</span> <span class="s">"123123"</span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk-2'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">categoryView</span><span class="o">(</span><span class="s">"123123"</span><span class="o">,</span> <span class="s">"http://path"</span><span class="o">);</span>
+</code></pre></div><h2 id='search-result'>Search Result</h2>
+<p>Method should be called whenever customer makes free text search. Check the data structure for feeding relevant
+fields and data.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keyword</td>
+<td>String</td>
+<td>false</td>
+<td>Search keyword</td>
+</tr>
+<tr>
+<td>resultCount</td>
+<td>Integer</td>
+<td>false</td>
+<td>Items count of search result</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>true</td>
+<td>Url path of search page</td>
+</tr>
+</tbody></table>
+<h3 id='ios-sdk-3'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">searchResult</span><span class="p">(</span><span class="nv">keyword</span><span class="p">:</span> <span class="s">"green shirt"</span><span class="p">,</span> <span class="nv">resultCount</span><span class="p">:</span> <span class="mi">254</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk-3'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">searchResult</span><span class="o">(</span><span class="s">"green shirt"</span><span class="o">,</span> <span class="mi">129</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+
+</code></pre></div><h2 id='add-to-cart'>Add To Cart</h2>
+<p>Method should be called whenever customer adds item to basket. Check the data structure for feeding relevant
+fields and data.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productId</td>
+<td>String</td>
+<td>false</td>
+<td>Identifier of product</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>String</td>
+<td>true</td>
+<td>Identifier of a variant if selected or present</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>false</td>
+<td>Quantity added to basket</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Double</td>
+<td>false</td>
+<td>Full price of product</td>
+</tr>
+<tr>
+<td>discountedPrice</td>
+<td>Double</td>
+<td>true</td>
+<td>Discounted price of product</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>false</td>
+<td>ISO currency code of product</td>
+</tr>
+<tr>
+<td>origin</td>
+<td>String</td>
+<td>true</td>
+<td>Location of add to basket button. Eg: ProductDetail, CategoryDetail</td>
+</tr>
+<tr>
+<td>basketId</td>
+<td>String</td>
+<td>true</td>
+<td>Unique identifier of basketId</td>
+</tr>
+<tr>
+<td>supplierId</td>
+<td>String</td>
+<td>true</td>
+<td>If product supplied by multiple vendor add supplier id</td>
+</tr>
+</tbody></table>
+<h3 id='ios-sdk-4'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">addToCart</span><span class="p">(</span><span class="nv">productId</span><span class="p">:</span> <span class="s">"product1"</span><span class="p">,</span> <span class="nv">variant</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">quantity</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span> <span class="nv">price</span><span class="p">:</span> <span class="mf">28.9</span><span class="p">,</span>
+<span class="nv">discountedPrice</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="s">"USD"</span><span class="p">,</span> <span class="nv">origin</span><span class="p">:</span> <span class="s">"ProductDetailPage"</span><span class="p">,</span> <span class="nv">basketId</span><span class="p">:</span> <span class="s">"basket232"</span><span class="p">,</span> <span class="nv">supplierId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk-4'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">addToCart</span><span class="o">(</span><span class="s">"productId"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="mi">27</span><span class="o">,</span> <span class="mf">29.8</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span><span class="s">"USD"</span><span class="o">,</span> <span class="s">"ProductDetailPage"</span><span class="o">,</span> <span class="s">"basket1231"</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</code></pre></div><h2 id='remove-from-cart'>Remove From Cart</h2>
+<p>Method should be called whenever customer removes item from basket. Check the data structure for feeding relevant
+fields and data.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productId</td>
+<td>String</td>
+<td>false</td>
+<td>Identifier of product</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>String</td>
+<td>true</td>
+<td>Identifier of a variant if selected or present</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>false</td>
+<td>Quantity added to basket</td>
+</tr>
+<tr>
+<td>basketId</td>
+<td>String</td>
+<td>true</td>
+<td>Unique identifier of basketId</td>
+</tr>
+</tbody></table>
+<h3 id='ios-sdk-5'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">removeFromCart</span><span class="p">(</span><span class="nv">productId</span><span class="p">:</span> <span class="s">"productId"</span><span class="p">,</span> <span class="nv">variantId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">quantity</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">basketId</span><span class="p">:</span> <span class="s">"basketId"</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk-5'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">removeFromCart</span><span class="o">(</span><span class="s">"productId"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="s">"basketId"</span><span class="o">);</span>
+</code></pre></div><h2 id='cart-view'>Cart View</h2>
+<p>Method should be called whenever customer opens cart page. Check the data structure for feeding relevant
+fields and data.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basketId</td>
+<td>String</td>
+<td>false</td>
+<td>Unique identifier of basketId</td>
+</tr>
+</tbody></table>
+<h3 id='ios-sdk-6'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">cartView</span><span class="p">(</span><span class="nv">basketId</span><span class="p">:</span> <span class="s">"basketId"</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk-6'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">cartView</span><span class="o">(</span><span class="s">"basketId"</span><span class="o">);</span>
+</code></pre></div><h2 id='order-funnel'>Order Funnel</h2>
+<p>Method should be called if you have multiple steps before completing and Order like address input, payment information pages. Check the data structure for feeding relevant
+fields and data.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basketId</td>
+<td>String</td>
+<td>false</td>
+<td>Unique identifier of basketId</td>
+</tr>
+<tr>
+<td>step</td>
+<td>String</td>
+<td>false</td>
+<td>Name of step. Eg: AddressInfoPage, CreditCardPage</td>
+</tr>
+</tbody></table>
+<h3 id='ios-sdk-7'>iOS SDK</h3><div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">orderFunnel</span><span class="p">(</span><span class="nv">basketId</span><span class="p">:</span> <span class="s">"basketId"</span><span class="p">,</span> <span class="nv">step</span><span class="p">:</span> <span class="s">"AddressInfoPage"</span><span class="p">)</span>
+</code></pre></div><h3 id='android-sdk-7'>Android SDK</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">orderFunnel</span><span class="o">(</span><span class="s">"basketId"</span><span class="o">,</span> <span class="s">"AddressInfoPage"</span><span class="o">);</span>
+</code></pre></div><h2 id='order'>Order</h2>
+<p>Method should be called after if your customer completed a successful order. SDK provides builders to create an Order.</p>
+
+<ul>
+<li>Order Item Structure</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productId</td>
+<td>String</td>
+<td>false</td>
+<td>Identifier of product</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>String</td>
+<td>true</td>
+<td>Identifier of a variant if selected or present</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Integer</td>
+<td>false</td>
+<td>Quantity added to basket</td>
+</tr>
+<tr>
+<td>price</td>
+<td>Double</td>
+<td>false</td>
+<td>Full price of product</td>
+</tr>
+<tr>
+<td>discountedPrice</td>
+<td>Double</td>
+<td>true</td>
+<td>Discounted price of product</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>false</td>
+<td>ISO currency code of product</td>
+</tr>
+<tr>
+<td>supplierId</td>
+<td>String</td>
+<td>true</td>
+<td>If product supplied by multiple vendor add supplier id</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>Order Structure</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>basketId</td>
+<td>String</td>
+<td>false</td>
+<td>Unique identifier of basketId</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>String</td>
+<td>false</td>
+<td>Unique identifier of orderId</td>
+</tr>
+<tr>
+<td>totalAmount</td>
+<td>Double</td>
+<td>false</td>
+<td>Total Price of order</td>
+</tr>
+<tr>
+<td>discountAmount</td>
+<td>Double</td>
+<td>false</td>
+<td>Total Discount Amount of order</td>
+</tr>
+<tr>
+<td>paymentMethod</td>
+<td>String</td>
+<td>false</td>
+<td>Payment method of order. CreditCard, Cash, etc</td>
+</tr>
+<tr>
+<td>coupon</td>
+<td>String</td>
+<td>true</td>
+<td>If present, coupon code of order</td>
+</tr>
+<tr>
+<td>discount</td>
+<td>String</td>
+<td>true</td>
+<td>If present, discount name of order</td>
+</tr>
+<tr>
+<td>promotion</td>
+<td>String</td>
+<td>true</td>
+<td>If present, promotion name of order</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="k">let</span> <span class="nv">order</span> <span class="o">=</span> <span class="kt">Order</span><span class="o">.</span><span class="nf">create</span><span class="p">(</span><span class="nv">orderId</span><span class="p">:</span> <span class="s">"orderId"</span><span class="p">)</span>
+  <span class="o">.</span><span class="nf">addItem</span><span class="p">(</span><span class="nv">productId</span><span class="p">:</span> <span class="s">"product1"</span><span class="p">,</span> <span class="nv">variantId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">quantity</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">price</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="nv">discountedPrice</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="s">"USD"</span><span class="p">,</span> <span class="nv">supplierId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+  <span class="o">.</span><span class="nf">addItem</span><span class="p">(</span><span class="nv">productId</span><span class="p">:</span> <span class="s">"product2"</span><span class="p">,</span> <span class="nv">variantId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">quantity</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nv">price</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="nv">discountedPrice</span><span class="p">:</span> <span class="mf">15.0</span><span class="p">,</span> <span class="nv">currency</span><span class="p">:</span> <span class="s">"USD"</span><span class="p">,</span> <span class="nv">supplierId</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+  <span class="o">.</span><span class="nf">totalAmount</span><span class="p">(</span><span class="nv">totalAmount</span><span class="p">:</span> <span class="mi">55</span><span class="p">)</span>
+  <span class="o">.</span><span class="nf">discountedAmount</span><span class="p">(</span><span class="nv">discountedAmount</span><span class="p">:</span> <span class="mi">35</span><span class="p">)</span>
+  <span class="o">.</span><span class="nf">withCoupon</span><span class="p">(</span><span class="nv">couponName</span><span class="p">:</span> <span class="s">"AppliedCouponCode"</span><span class="p">)</span>
+  <span class="o">.</span><span class="nf">withDiscount</span><span class="p">(</span><span class="nv">discountName</span><span class="p">:</span> <span class="s">"Extra Discount Product 1"</span><span class="p">)</span>
+  <span class="o">.</span><span class="nf">withPromotion</span><span class="p">(</span><span class="nv">promotionName</span><span class="p">:</span> <span class="s">"BuyOneGetTwo"</span><span class="p">)</span>
+
+<span class="kt">Xennio</span><span class="o">.</span><span class="nf">ecommerce</span><span class="p">()</span><span class="o">.</span><span class="nf">orderSuccess</span><span class="p">(</span><span class="nv">basketId</span><span class="p">:</span> <span class="s">"basketId"</span><span class="p">,</span> <span class="nv">order</span><span class="p">:</span> <span class="n">order</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="nc">Order</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"orderId"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="s">"product1"</span><span class="o">,</span> <span class="s">"variantId"</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mf">20.0</span><span class="o">,</span> <span class="mf">15.0</span><span class="o">,</span> <span class="s">"USD"</span><span class="o">,</span> <span class="s">"supplierId"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="s">"product2"</span><span class="o">,</span> <span class="s">"variantId"</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mf">20.0</span><span class="o">,</span> <span class="mf">15.0</span><span class="o">,</span> <span class="s">"USD"</span><span class="o">,</span> <span class="s">"supplierId"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">totalAmount</span><span class="o">(</span><span class="mf">55.0</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">discountAmount</span><span class="o">(</span><span class="mf">34.0</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">paidWith</span><span class="o">(</span><span class="s">"CreditCard"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">withCoupon</span><span class="o">(</span><span class="s">"AppliedCouponCode"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">withDiscount</span><span class="o">(</span><span class="s">"Extra Discount Product 1"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">withPromotion</span><span class="o">(</span><span class="s">"BuyOneGetTwo"</span><span class="o">);</span>
+
+<span class="nc">Xennio</span><span class="o">.</span><span class="na">ecommerce</span><span class="o">().</span><span class="na">orderSuccess</span><span class="o">(</span><span class="s">"basketId"</span><span class="o">,</span> <span class="n">order</span><span class="o">);</span>
+</code></pre></div><h1 id='ios-push-notifications'>iOS Push Notifications</h1><h2 id='step-1-apple-requirements'>Step 1 - Apple Requirements</h2>
+<ul>
+<li>Because of Xcode simulator doesn&#39;t have push notification support for testing purposes, you need an real iOS test device.</li>
+<li>Apple Push Notification service SSL certificate.</li>
+</ul>
+<h2 id='step-2-adding-a-notification-service-extension'>Step 2 - Adding a Notification Service Extension</h2>
+<p>The iOS notification service extension allows your iOS application to receive rich notifications.
+It&#39;s also required for Xenn.io&#39;s analytical and segmentation features.</p>
+
+<ul>
+<li>In Xcode Select File &gt; New &gt; Target...</li>
+<li>Select Notification Service Extension then press Next</li>
+</ul>
+
+<p><img src="images/assets/iospushnotificationextension-609864bf.jpg" alt="" /></p>
+
+<ul>
+<li>Enter your project name, organisational identifier, language and project then press finish</li>
+</ul>
+
+<p><img src="images/assets/iospushnotificationextensionform-77b21e02.jpg" alt="" /></p>
+
+<ul>
+<li>Press Activate button</li>
+</ul>
+
+<p><img src="images/assets/iospushnotificationextensionactivation-93fdafc6.jpg" alt="" /></p>
+
+<ul>
+<li>Open project navigator, select the project directory and select the your extension which you created and targeted
+in the project and targets list.
+You have to set the Deployment Target to be iOS 10 which Apple had begun to support Rich Media for push.
+iOS SDK has no official suppoart for versions under 10.</li>
+</ul>
+
+<p><img src="images/assets/iospushnotificationextensionprojectsettings-25fd85c0.jpg" alt="" /></p>
+
+<ul>
+<li>Open notification extension service file to handle incoming push notification.</li>
+</ul>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">import</span> <span class="kt">UserNotifications</span>
+<span class="kd">import</span> <span class="kt">Xennio</span>
+
+<span class="kd">class</span> <span class="kt">NotificationService</span><span class="p">:</span> <span class="kt">UNNotificationServiceExtension</span> <span class="p">{</span>
+
+ <span class="k">var</span> <span class="nv">contentHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">UNNotificationContent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span>
+ <span class="k">var</span> <span class="nv">bestAttemptContent</span><span class="p">:</span> <span class="kt">UNMutableNotificationContent</span><span class="p">?</span>
+
+ <span class="k">override</span> <span class="kd">func</span> <span class="nf">didReceive</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">UNNotificationRequest</span><span class="p">,</span> <span class="n">withContentHandler</span>
+    <span class="nv">contentHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">UNNotificationContent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">self</span><span class="o">.</span><span class="n">contentHandler</span> <span class="o">=</span> <span class="n">contentHandler</span>
+  <span class="n">bestAttemptContent</span> <span class="o">=</span> <span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="nf">mutableCopy</span><span class="p">()</span> <span class="k">as?</span> <span class="kt">UNMutableNotificationContent</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="kt">Xennio</span><span class="o">.</span><span class="nf">notifications</span><span class="p">()</span><span class="o">.</span><span class="nf">isXennioNotification</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="n">request</span><span class="p">)){</span>
+   <span class="k">if</span> <span class="k">let</span> <span class="nv">bestAttemptContent</span> <span class="o">=</span> <span class="n">bestAttemptContent</span> <span class="p">{</span>
+    <span class="kt">Xennio</span><span class="o">.</span><span class="nf">notifications</span><span class="p">()</span><span class="o">.</span><span class="nf">handlePushNotification</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="n">request</span><span class="p">,</span> <span class="nv">bestAttemptContent</span><span class="p">:</span> <span class="n">bestAttemptContent</span><span class="p">,</span>
+        <span class="nv">withContentHandler</span><span class="p">:</span> <span class="n">contentHandler</span><span class="p">)</span>
+    <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='step-3-ios-application-setup'>Step 3 - iOS Application setup</h2>
+<ul>
+<li>Open project navigator again and click your application in targets. Click +Capability button and search for Push Notifications and
+double click Push Notifications.</li>
+</ul>
+
+<p><img src="images/assets/iospushnotificationextensionpushsettings-375e48c3.jpg" alt="" /></p>
+
+<ul>
+<li>To store your users push notification tokens. Open Appdelegate file and add codes below to didRegisterForRemoteNotificationsWithDeviceToken method.</li>
+</ul>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didRegisterForRemoteNotificationsWithDeviceToken</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">tokenComponents</span> <span class="o">=</span> <span class="n">deviceToken</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">data</span> <span class="k">in</span> <span class="kt">String</span><span class="p">(</span><span class="nv">format</span><span class="p">:</span> <span class="s">"%02.2hhx"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="p">}</span>
+    <span class="k">let</span> <span class="nv">deviceTokenString</span> <span class="o">=</span> <span class="n">tokenComponents</span><span class="o">.</span><span class="nf">joined</span><span class="p">()</span>
+    <span class="kt">Xennio</span><span class="o">.</span><span class="nf">savePushToken</span><span class="p">(</span><span class="nv">deviceToken</span><span class="p">:</span> <span class="n">deviceTokenString</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><p>If you already collecting push notification tokens just call <code>Xennio.savePushToken(deviceToken: token)</code></p></li>
+<li><p>For more accurate push deliverability results, handling deeplink or universal links
+and associate parameters with session add lines below to didReceiveRemoteNotification method</p></li>
+</ul>
+<div class="highlight"><pre class="highlight swift tab-swift"><code><span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didReceiveRemoteNotification</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span><span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">pushSource</span> <span class="o">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">"source"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+         <span class="k">if</span> <span class="s">"xennio"</span> <span class="o">==</span> <span class="n">pushSource</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+             <span class="kt">Xennio</span><span class="o">.</span><span class="nf">notifications</span><span class="p">()</span><span class="o">.</span><span class="nf">pushMessageOpened</span><span class="p">(</span><span class="nv">pushContent</span><span class="p">:</span> <span class="n">userInfo</span><span class="p">)</span>
+
+             <span class="k">if</span> <span class="k">let</span> <span class="nv">launch_url</span> <span class="o">=</span> <span class="n">userInfo</span><span class="p">[</span><span class="s">"launch_url"</span><span class="p">]</span> <span class="k">as?</span> <span class="kt">String</span> <span class="p">{</span>
+                 <span class="c1">// Handle universal or deeplink  here</span>
+             <span class="p">}</span>
+             <span class="c1">// Handle extra parameters here</span>
+         <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Now iOS push notification setup completed in your app. You have to create distribution for testing end to end integration.</li>
+</ul>
+<h1 id='google-android-push-notifications'>Google Android Push Notifications</h1><h2 id='step-1-firebase-requirements'>Step 1 - Firebase Requirements</h2>
+<ul>
+<li>Before sending push notifications you have to create private key from Google Firebase console.</li>
+</ul>
+<h2 id='step-2-extending-and-registering-firebasemessagingservice'>Step 2 - Extending and Registering FirebaseMessagingService</h2>
+<ul>
+<li>Make sure your dependencies contains Xennio Firebase Push kit</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="n">dependencies</span> <span class="o">{</span>
+ <span class="n">implementation</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">io</span><span class="o">.</span><span class="na">xenn</span><span class="err">'</span><span class="o">,</span> <span class="nl">name:</span> <span class="err">'</span><span class="n">android</span><span class="o">-</span><span class="n">sdk</span><span class="err">'</span><span class="o">,</span> <span class="nl">version:</span> <span class="err">'</span><span class="mf">3.1</span><span class="o">.</span><span class="mi">5</span><span class="err">'</span>
+ <span class="n">implementation</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">io</span><span class="o">.</span><span class="na">xenn</span><span class="err">'</span><span class="o">,</span><span class="nl">name:</span> <span class="err">'</span><span class="n">fcm</span><span class="o">-</span><span class="n">kit</span><span class="err">'</span><span class="o">,</span> <span class="nl">version:</span> <span class="err">'</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="err">'</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Add new class which is extending FirebaseMessagingService. If you have already skip this step.</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirebaseMessagingService</span> <span class="kd">extends</span> <span class="nc">FirebaseMessagingService</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Register as service to your application&#39;s manifest file like below.</li>
+</ul>
+<div class="highlight"><pre class="highlight xml tab-xml"><code><span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">"MyFirebaseMessagingService"</span> <span class="na">android:exported=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;intent-filter&gt;</span>
+   <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.google.firebase.MESSAGING_EVENT"</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</code></pre></div><h2 id='step-3-google-android-application-setup'>Step 3 - Google Android Application setup</h2>
+<ul>
+<li>To store your users push notification tokens add lines below to your class which extends FirebaseMessagingService</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNewToken</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onNewToken</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+  <span class="nc">Xennio</span><span class="o">.</span><span class="na">plugins</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="nc">FcmKitPlugin</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">savePushToken</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>For handling incoming push notifications add lines below to your class which extends FirebaseMessagingService</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMessageReceived</span><span class="o">(</span><span class="nc">RemoteMessage</span> <span class="n">remoteMessage</span><span class="o">)</span> <span class="o">{</span>
+ <span class="kd">super</span><span class="o">.</span><span class="na">onMessageReceived</span><span class="o">(</span><span class="n">remoteMessage</span><span class="o">);</span>
+ <span class="nc">FcmKitPlugin</span> <span class="n">fcmKitPlugin</span> <span class="o">=</span> <span class="nc">Xennio</span><span class="o">.</span><span class="na">plugins</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="nc">FcmKitPlugin</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+ <span class="k">if</span> <span class="o">(</span><span class="n">fcmKitPlugin</span><span class="o">.</span><span class="na">isXennioNotification</span><span class="o">(</span><span class="n">remoteMessage</span><span class="o">))</span> <span class="o">{</span>
+    <span class="n">fcmKitPlugin</span><span class="o">.</span><span class="na">handlePushNotification</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">remoteMessage</span><span class="o">);</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Now Google Android push notification setup completed in your app. You can test your implementation without creating distribution.</li>
+</ul>
+<h1 id='huawei-android-push-notifications'>Huawei Android Push Notifications</h1><h2 id='step-1-huawei-messaging-service-requirements'>Step 1 - Huawei Messaging Service Requirements</h2>
+<ul>
+<li>Before sending push notifications you have to resolve your HMS App Id and HMS Client Secret from Huawei&#39;s AppGallery Connect.</li>
+</ul>
+<h2 id='step-2-extending-and-registering-hmsmessageservice'>Step 2 - Extending and Registering HmsMessageService</h2>
+<ul>
+<li>Make sure your dependencies contains Xennio Huawei Messaging Service Push kit</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="n">dependencies</span> <span class="o">{</span>
+ <span class="n">implementation</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">io</span><span class="o">.</span><span class="na">xenn</span><span class="err">'</span><span class="o">,</span> <span class="nl">name:</span> <span class="err">'</span><span class="n">android</span><span class="o">-</span><span class="n">sdk</span><span class="err">'</span><span class="o">,</span> <span class="nl">version:</span> <span class="err">'</span><span class="mf">3.1</span><span class="o">.</span><span class="mi">5</span><span class="err">'</span>
+ <span class="n">implementation</span> <span class="nl">group:</span> <span class="err">'</span><span class="n">io</span><span class="o">.</span><span class="na">xenn</span><span class="err">'</span><span class="o">,</span><span class="nl">name:</span> <span class="err">'</span><span class="n">hms</span><span class="o">-</span><span class="n">kit</span><span class="err">'</span><span class="o">,</span> <span class="nl">version:</span> <span class="err">'</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">2</span><span class="err">'</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Add new class which is extending HmsMessageService. If you have already skip this step.</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyHmsMessagingService</span> <span class="kd">extends</span> <span class="nc">HmsMessageService</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Register as service to your application&#39;s manifest file like below.</li>
+</ul>
+<div class="highlight"><pre class="highlight xml tab-xml"><code><span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">"MyHmsMessagingService"</span> <span class="na">android:exported=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;intent-filter&gt;</span>
+   <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.huawei.push.action.MESSAGING_EVENT"</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</code></pre></div><h2 id='step-3-huawei-android-application-setup'>Step 3 - Huawei Android Application setup</h2>
+<ul>
+<li>To store your users push notification tokens add lines below to your class which extends HmsMessageService</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onNewToken</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">.</span><span class="na">onNewToken</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+  <span class="nc">Xennio</span><span class="o">.</span><span class="na">plugins</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="nc">HmsKitPlugin</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">savePushToken</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>For handling incoming push notifications add lines below to your class which extends HmsMessageService</li>
+</ul>
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onMessageReceived</span><span class="o">(</span><span class="nc">RemoteMessage</span> <span class="n">remoteMessage</span><span class="o">)</span> <span class="o">{</span>
+ <span class="kd">super</span><span class="o">.</span><span class="na">onMessageReceived</span><span class="o">(</span><span class="n">remoteMessage</span><span class="o">);</span>
+ <span class="nc">HmsKitPlugin</span> <span class="n">hmsKitPlugin</span> <span class="o">=</span> <span class="nc">Xennio</span><span class="o">.</span><span class="na">plugins</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="nc">HmsKitPlugin</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+ <span class="k">if</span><span class="o">(</span><span class="n">hmsKitPlugin</span><span class="o">.</span><span class="na">isXennioNotification</span><span class="o">(</span><span class="n">remoteMessage</span><span class="o">)){</span>
+   <span class="n">hmsKitPlugin</span><span class="o">.</span><span class="na">handlePushNotification</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">remoteMessage</span><span class="o">);</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<ul>
+<li>Now Huawei Android push notification setup completed in your app. You can test your implementation without creating distribution.</li>
+</ul>
+<h1 id='notification-center'>Notification Center</h1>
+<p>Notification Center is a great feature for native mobile apps that lets customers see push notifications they missed or never saw.</p>
+<h2 id='loading-notifications-from-ios-sdk'>Loading notifications from IOS SDK</h2><div class="highlight"><pre class="highlight swift tab-swift"><code>      <span class="k">var</span> <span class="nv">pushNotifications</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="o">&gt;&gt;</span><span class="p">?</span>
+      <span class="kt">Xennio</span><span class="o">.</span><span class="nf">pushMessagesHistory</span><span class="p">()</span><span class="o">.</span><span class="nf">getPushMessagesHistory</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="mi">10</span><span class="p">),</span> <span class="nv">callback</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="k">in</span>
+          <span class="n">pushNotifications</span> <span class="o">=</span> <span class="n">result</span>
+      <span class="p">})</span>
+</code></pre></div><h2 id='loading-notifications-from-android-sdk'>Loading notifications from Android SDK</h2><div class="highlight"><pre class="highlight java tab-java"><code>    <span class="nc">Xennio</span><span class="o">.</span><span class="na">pushMessagesHistory</span><span class="o">().</span><span class="na">getPushMessagesHistory</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="k">new</span> <span class="nc">ResultConsumer</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;&gt;()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">consume</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">XennioLogger</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">"PushMessagesHistory data is here! : "</span> <span class="o">+</span> <span class="n">data</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">});</span>
+</code></pre></div><h1 id='transactional-push-api'>Transactional Push API</h1>
+<p>In order to send push notifications to members you can use transactional push api. This api will be useful if you would like to notify
+your members about updates their specific contexts like &#39;Shipment status changes&#39;, &#39;Order status changes&#39; etc...</p>
+
+<p>Before sending a notification you have to resolve your REST-KEY and DEV-KEY from console by visiting any application detail in your account.</p>
+
+<p><img src="images/assets/applicationcredentials-290926ac.jpg" alt="" /></p>
+
+<p>You have to calculate hash before sending request on your back-end. Hash will be verified your identity and request. This hash should be
+renewed in each request. Hash is the MD5 value of concatenation of REST-KEY, DEV_KEY and ISO Formatted Date.</p>
+<h3 id='http-request'>HTTP Request</h3><div class="highlight"><pre class="highlight plaintext"><code>POST https://api.xenn.io/push-notification
+</code></pre></div><h3 id='header-parameters'>Header Parameters</h3>
+<p>Request headers below should be added while making request.</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Rest-Key</td>
+<td>Your Rest Key</td>
+</tr>
+<tr>
+<td>X-Hash</td>
+<td>MD5(Your Rest Key + Your Dev Key + Now (UTC ISODateTimeFormatted Date String))</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Now (UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td>PushMessage</td>
+<td>false</td>
+<td>Push notification type message (see below for details)</td>
+</tr>
+<tr>
+<td>recipient</td>
+<td>String</td>
+<td>false</td>
+<td>MemberId of your logged in customer</td>
+</tr>
+</tbody></table>
+
+<p>PushMessage</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>true</td>
+<td>Push notification type message (see below for details)</td>
+</tr>
+<tr>
+<td>pushType</td>
+<td>String</td>
+<td>false</td>
+<td>Can be &#39;image&#39; and &#39;text&#39;</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String</td>
+<td>false</td>
+<td>Title of the notification</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>String</td>
+<td>true</td>
+<td>Sub title of the notification. Works in IOS only.</td>
+</tr>
+<tr>
+<td>body</td>
+<td>String</td>
+<td>false</td>
+<td>Message content</td>
+</tr>
+<tr>
+<td>badge</td>
+<td>Integer</td>
+<td>true</td>
+<td>Numeric value on the application logo</td>
+</tr>
+<tr>
+<td>sound</td>
+<td>String</td>
+<td>true</td>
+<td>Sound file name in your application</td>
+</tr>
+<tr>
+<td>launchUrl</td>
+<td>String</td>
+<td>true</td>
+<td>Deeplink or Target Url of push notification</td>
+</tr>
+<tr>
+<td>imageUrl</td>
+<td>String</td>
+<td>true</td>
+<td>Absolute path of the image which you would like to show. Use CDN and check image specifications.</td>
+</tr>
+<tr>
+<td>extra</td>
+<td>PlatformExtra</td>
+<td>false</td>
+<td>Extra parameters for specific purposes like analytics, deeplinks, etc. See below for details</td>
+</tr>
+</tbody></table>
+
+<p>PlatformExtra</p>
+
+<p>Push extra is useful when you would like to reach some parameters regarding push notification.</p>
+
+<p>If you would like to track traffic from other analytics applications you can use UTM codes with adding to each platform parameter.
+&#39;utm_source&#39;, &#39;utm_medium&#39;, &#39;utm_campaign&#39;</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fcmAppPush</td>
+<td>Map[String, String]</td>
+<td>true</td>
+<td>Android push notification parameters.</td>
+</tr>
+<tr>
+<td>iosAppPush</td>
+<td>Map[String, String]</td>
+<td>true</td>
+<td>IOS push notification parameters.</td>
+</tr>
+<tr>
+<td>fcmWebPush</td>
+<td>Map[String, String]</td>
+<td>true</td>
+<td>Chrome based browsers push notification parameters.</td>
+</tr>
+</tbody></table>
+
+<p>Request Sample</p>
+<div class="highlight"><pre class="highlight plaintext"><code>curl --location --request POST 'https://api.xenn.io/push-notification' \
+--header 'X-Rest-Key: XENN-RESTKEY' \
+--header 'X-Hash: 1eb7122bb76d48d57bb3157b54e4440d' \
+--header 'Date: 2021-05-19T19:05:00.000Z' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "memberId": "LOGGED_IN_CUSTOMTER_ID",
+    "message": {
+        "id": "ID_OF_CAMPAIGN",
+        "pushType": "image",
+        "title": "Transactional Push Message Title",
+        "body": "Transactional Push Message Body",
+        "imageUrl": "https://CDN_IMAGE_URL",
+        "badge": 3,
+        "extra": {
+            "fcmWebPush": {
+                "url": "https://www.google.com",
+                "customParameter": "customValue"
+                "utm_source": "xenn",
+                "utm_medium": "push_web",
+                "utm_campaign": "demo"
+            },
+            "fcmAppPush": {
+                 "url": "https://www.google.com",
+                 "customParameter": "customValue"
+                 "utm_source": "xenn",
+                 "utm_medium": "push_android",
+                 "utm_campaign": "demo"
+            },
+            "iosAppPush" : {
+                "url": "https://www.youtapplication.com",
+                "customParameter": "customValue"
+                "utm_source": "xenn",
+                "utm_medium": "push_ios",
+                "utm_campaign": "demo"
+            }
+        }
+    }
+}'
+</code></pre></div><h3 id='http-status-codes'>HTTP Status Codes</h3>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td>Request is valid and your message will be delivered all tokens regarding this membership.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your Request is not validated against your header parameters.</td>
+</tr>
+</tbody></table>
+<h1 id='feeding-members'>Feeding Members</h1>
+<p>In order to use member attributes in push messages or using your existing segments while creating audiences, you have to update your application
+members with using this api.</p>
+
+<p><img src="images/assets/applicationcredentials-290926ac.jpg" alt="" /></p>
+
+<p>You have to calculate hash before sending request on your back-end. Hash will be verified your identity and request. This hash should be
+renewed in each request. Hash is the MD5 value of concatenation of REST-KEY, DEV_KEY and ISO Formatted Date.</p>
+<h3 id='http-request'>HTTP Request</h3><div class="highlight"><pre class="highlight plaintext"><code>POST https://api.xenn.io/members/bulk
+</code></pre></div><h3 id='header-parameters'>Header Parameters</h3>
+<p>Request headers below should be added while making request.</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Rest-Key</td>
+<td>Your Rest Key</td>
+</tr>
+<tr>
+<td>X-Hash</td>
+<td>MD5(Your Rest Key + Your Dev Key + Now (UTC ISODateTimeFormatted Date String))</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Now (UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-parameters'>Request Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>updates</td>
+<td>List[Member]</td>
+<td>false</td>
+<td>Member Type type message (see below for details)</td>
+</tr>
+</tbody></table>
+
+<p>Member</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>false</td>
+<td>Member id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>true</td>
+<td>Name</td>
+</tr>
+<tr>
+<td>surname</td>
+<td>String</td>
+<td>true</td>
+<td>Surname</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>true</td>
+<td>Email address</td>
+</tr>
+<tr>
+<td>birthDate</td>
+<td>DateTime</td>
+<td>true</td>
+<td>UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.</td>
+</tr>
+<tr>
+<td>registerDate</td>
+<td>DateTime</td>
+<td>false</td>
+<td>UTC ISODateTimeFormatted Date String) Eg: 2021-05-19T19:05:00.000Z.</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>String</td>
+<td>true</td>
+<td>Gender</td>
+</tr>
+<tr>
+<td>phoneNumber</td>
+<td>String</td>
+<td>true</td>
+<td>Phone number</td>
+</tr>
+<tr>
+<td>segments</td>
+<td>String</td>
+<td>true</td>
+<td>Internal segments. If you have more than one segments seperate them using &#39;#&#39;. Eg: Gold#Elite#FreeCargo</td>
+</tr>
+</tbody></table>
+
+<p>Request Sample</p>
+<div class="highlight"><pre class="highlight plaintext"><code>curl --location --request POST 'https://api.xenn.io/members/bulk' \
+--header 'X-Rest-Key: XENN-RESTKEY' \
+--header 'X-Hash: 1eb7122bb76d48d57bb3157b54e4440d' \
+--header 'Date: 2021-05-19T19:05:00.000Z' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+                "updates": [
+                    {
+                        "id": "12312",
+                        "name": "paul",
+                        "surname": "stanley",
+                        "segments": "Gold#FreeCargo#TestUsers",
+                        "registerDate": "2021-05-19T19:05:00.000Z"
+                    },
+                    {
+                        "id": "12312",
+                        "name": "paul",
+                        "surname": "gilbert",
+                        "segments": "ProdUsers#LikelyChurn",
+                        "registerDate": "2021-05-19T19:05:00.000Z"
+                    }
+                ]
+            }'
+</code></pre></div><h3 id='http-status-codes'>HTTP Status Codes</h3>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request is valid and members will be updated eventually</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your Request is not validated against your header parameters.</td>
+</tr>
+</tbody></table>
+
+      </div>
+    </div>
+  </body>
+</html>
