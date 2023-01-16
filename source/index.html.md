@@ -18,6 +18,7 @@ includes:
   - iospushnotifications.md.erb
   - androidpushnotifications.md.erb
   - huaweipushnotifications.md.erb
+  - notificationcenter.md.erb
   - transactionalpushapi.md.erb
   - feedingmembers.md.erb
 
